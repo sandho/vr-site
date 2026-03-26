@@ -253,11 +253,12 @@ export default function useGsapScrollScaleAnimations() {
     // ScrollTrigger.addEventListener("refresh", handleRefresh);
 
     // Initialize with a small delay to ensure DOM is ready
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       initAnim();
     }, 100);
 
     return () => {
+      clearTimeout(timerId);
       // Only kill our specific ScrollTriggers
       ScrollTrigger.getAll()
         .filter((st) => {
