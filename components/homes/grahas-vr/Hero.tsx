@@ -102,9 +102,13 @@ export default function Hero() {
         >
           {/* Top — logo */}
           <div className="hero-intro-top">
-            <span className="hero-intro-logo">
-              GRAHAs<br />VR
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/img/grahas-logo.png"
+              alt="GRAHAs VR"
+              className="hero-intro-logo"
+              style={{ height: "5rem", width: "auto", objectFit: "contain" }}
+            />
           </div>
 
           {/* Center — GIF with padding + radius */}

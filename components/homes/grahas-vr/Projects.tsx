@@ -1,6 +1,5 @@
 import Link from "next/link";
 import RevealText from "@/components/animation/RevealText";
-import BackgroundParallax from "@/components/animation/BackgroundParallax";
 import AnimatedButton from "@/components/animation/AnimatedButton";
 
 const projects = [
@@ -91,19 +90,25 @@ export default function Projects() {
                         <Link
                           className={`mxd-project-item__media ${project.anim}`}
                           href={`/project-details`}
+                          style={{ height: "auto" }}
                         >
-                          <BackgroundParallax
-                            className={`mxd-project-item__preview ${project.previewClass} parallax-img-small`}
-                          />
-                          <div className="mxd-project-item__tags">
-                            {project.tags.map((tag, i) => (
-                              <span
-                                key={i}
-                                className="tag tag-default tag-permanent"
-                              >
-                                {tag}
-                              </span>
-                            ))}
+                          <div style={{ position: "relative", borderRadius: "var(--radius-m, 16px)", overflow: "hidden" }}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src="/img/gif/output.gif"
+                              alt={project.title}
+                              style={{ width: "100%", height: "auto", display: "block" }}
+                            />
+                            <div
+                              className="mxd-project-item__tags"
+                              style={{ position: "absolute", bottom: "1rem", left: "1rem" }}
+                            >
+                              {project.tags.map((tag, i) => (
+                                <span key={i} className="tag tag-default tag-permanent">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </Link>
                         <div className="mxd-project-item__promo">

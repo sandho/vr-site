@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import StackCards from "@/components/animation/StackCards";
 
 export default function Platforms() {
@@ -43,19 +42,12 @@ export default function Platforms() {
                   </p>
                 </div>
                 <div className="services-stack__image">
-                  <Image
-                    className="service-img service-img-s"
-                    alt="Zeal X Platform"
-                    src="/img/services/800x800_ser-01.webp"
-                    width={800}
-                    height={800}
-                  />
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     className="service-img service-img-m"
                     alt="Zeal X Platform"
-                    src="/img/services/1000x1000_ser-01.webp"
-                    width={1000}
-                    height={1000}
+                    src="/img/gif/output.gif"
+                    style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />
                 </div>
               </div>
@@ -91,19 +83,12 @@ export default function Platforms() {
                   </p>
                 </div>
                 <div className="services-stack__image">
-                  <Image
-                    className="service-img service-img-s"
-                    alt="Spaces Platform"
-                    src="/img/services/800x800_ser-02.webp"
-                    width={800}
-                    height={800}
-                  />
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     className="service-img service-img-m"
                     alt="Spaces Platform"
-                    src="/img/services/1000x1000_ser-02.webp"
-                    width={1000}
-                    height={1000}
+                    src="/img/gif/output.gif"
+                    style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />
                 </div>
               </div>
@@ -139,19 +124,12 @@ export default function Platforms() {
                   </p>
                 </div>
                 <div className="services-stack__image">
-                  <Image
-                    className="service-img service-img-s"
-                    alt="Canvas Platform"
-                    src="/img/services/800x800_ser-03.webp"
-                    width={800}
-                    height={800}
-                  />
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     className="service-img service-img-m"
                     alt="Canvas Platform"
-                    src="/img/services/1000x1000_ser-03.webp"
-                    width={1000}
-                    height={1000}
+                    src="/img/gif/output.gif"
+                    style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />
                 </div>
               </div>

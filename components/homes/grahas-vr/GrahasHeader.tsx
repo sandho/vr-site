@@ -154,9 +154,14 @@ export default function GrahasHeader() {
             <div ref={menuInnerRef} className="mxd-menu__inner">
               {/* Left — nav links */}
               <div className="mxd-menu__left">
-                <p
-                  className="mxd-menu__caption fade-in-elm"
-                >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/img/grahas-logo.png"
+                  alt="GRAHAs VR"
+                  className="fade-in-elm"
+                  style={{ height: "2rem", width: "auto", objectFit: "contain", marginBottom: "1.5rem" }}
+                />
+                <p className="mxd-menu__caption fade-in-elm">
                   Engineering-Grade XR
                   <br />
                   for Industry — Est. 2022
@@ -237,11 +242,12 @@ export default function GrahasHeader() {
         {/* Logo */}
         <div className="mxd-header__logo loading__fade">
           <Link href="/" className="mxd-logo">
-            <span className="mxd-logo__text">
-              GRAHAs
-              <br />
-              VR
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/img/grahas-logo.png"
+              alt="GRAHAs VR"
+              style={{ height: "3.5rem", width: "auto", objectFit: "contain" }}
+            />
           </Link>
         </div>
 

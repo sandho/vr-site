@@ -41,29 +41,16 @@ const StarIcon = () => (
 export default function Footer() {
   return (
     <footer id="mxd-footer" className="mxd-footer">
-      {/* Footer Block - Brand Text */}
+      {/* Footer Block - Brand Logo */}
       <div className="mxd-footer__text-wrap">
         <div className="fullwidth-text__tl-trigger" />
-        <div className="mxd-footer__fullwidth-text anim-top-to-bottom">
-          {/* Use SVG-style class so it scales to 100% width like the original */}
-          <svg
-            className="mxd-footer__svg-v2"
-            viewBox="0 0 520 72"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="GRAHAs VR"
-          >
-            <text
-              x="0"
-              y="60"
-              fontSize="72"
-              fontWeight="800"
-              fontFamily="inherit"
-              fill="currentColor"
-              letterSpacing="-2"
-            >
-              GRAHAs VR
-            </text>
-          </svg>
+        <div className="mxd-footer__fullwidth-text anim-top-to-bottom" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem 0" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/img/grahas-logo.png"
+            alt="GRAHAs VR"
+            style={{ height: "clamp(6rem, 14vw, 12rem)", width: "auto", objectFit: "contain" }}
+          />
         </div>
       </div>
 
