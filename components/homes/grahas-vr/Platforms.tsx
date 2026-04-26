@@ -1,10 +1,15 @@
-import Link from "next/link";
 import StackCards from "@/components/animation/StackCards";
+import AnimatedButton from "@/components/animation/AnimatedButton";
 
 export default function Platforms() {
   return (
-    <div className="mxd-section padding-stacked-section">
+    <div id="platforms" className="mxd-section padding-stacked-section">
       <div className="mxd-container grid-container">
+        <div className="mxd-block">
+          <div className="mxd-section-title">
+            <h2>Our Platforms</h2>
+          </div>
+        </div>
         {/* Block - Platforms Stacking Cards Start */}
         <div className="mxd-block mxd-grid-item no-margin">
           <div className="content__block">
@@ -13,19 +18,15 @@ export default function Platforms() {
               {/* Zeal X — Live */}
               <div className="mxd-services-stack__inner justify-between bg-base-opp">
                 <div className="mxd-services-stack__controls">
-                  <Link
-                    className="btn btn-round btn-round-large btn-additional slide-right-up anim-no-delay"
-                    href="https://zealx.in"
-                    target="_blank"
-                  >
-                    <i className="ph ph-arrow-up-right" />
-                  </Link>
+                  <AnimatedButton text="Get on Meta Store" className="btn btn-anim btn-default btn-outline-opposite slide-right-up" href="https://www.meta.com/experiences/">
+                    <i className="ph-bold ph-arrow-up-right" />
+                  </AnimatedButton>
                 </div>
                 <div className="mxd-services-stack__title width-60">
                   <h3 className="opposite">
                     Zeal X
                     <span className="tag tag-default tag-outline-opposite" style={{ marginLeft: "1rem", fontSize: "0.6em", verticalAlign: "middle" }}>
-                      🔥 Live
+                      Live
                     </span>
                   </h3>
                 </div>
@@ -37,8 +38,8 @@ export default function Platforms() {
                     <span className="tag tag-default tag-outline-opposite">Electrical Safety</span>
                   </div>
                   <p className="t-small-mobile t-opposite">
-                    120+ users. Enterprise safety training library for electrical
-                    &amp; fire safety. Available now on Meta Quest Store.
+                    Enterprise Safety Library. 120+ Users. Modules: Electrical
+                    Safety (Live), Fire Safety (Coming this Month).
                   </p>
                 </div>
                 <div className="services-stack__image">
@@ -46,7 +47,7 @@ export default function Platforms() {
                   <img
                     className="service-img service-img-m"
                     alt="Zeal X Platform"
-                    src="/img/gif/output.gif"
+                    src="/video/540x310_video-01.webp"
                     style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />
                 </div>
@@ -55,18 +56,13 @@ export default function Platforms() {
               {/* Spaces — Next Week */}
               <div className="mxd-services-stack__inner justify-between bg-accent">
                 <div className="mxd-services-stack__controls">
-                  <Link
-                    className="btn btn-round btn-round-large btn-base slide-right-up anim-no-delay"
-                    href="#contact"
-                  >
-                    <i className="ph ph-arrow-up-right" />
-                  </Link>
+                  <span className="btn btn-default btn-disabled">Access Now</span>
                 </div>
                 <div className="mxd-services-stack__title width-60">
                   <h3 className="opposite">
                     Spaces
                     <span className="tag tag-default tag-outline-opposite" style={{ marginLeft: "1rem", fontSize: "0.6em", verticalAlign: "middle" }}>
-                      💠 Next Week
+                      Launching Next Week
                     </span>
                   </h3>
                 </div>
@@ -78,8 +74,9 @@ export default function Platforms() {
                     <span className="tag tag-default tag-outline-opposite">Architectural</span>
                   </div>
                   <p className="t-small-mobile t-opposite">
-                    The Spatial Web. Standalone WebAR with engineering-grade
-                    precision for any industrial or architectural application.
+                    The Spatial Web. Instant AR for the Open Web. A
+                    Done-For-You service delivering standalone WebAR with
+                    engineering-grade accuracy in 72 hours. No apps required.
                   </p>
                 </div>
                 <div className="services-stack__image">
@@ -96,18 +93,15 @@ export default function Platforms() {
               {/* Canvas — Coming Soon */}
               <div className="mxd-services-stack__inner radius-dark justify-between bg-base-tint">
                 <div className="mxd-services-stack__controls">
-                  <Link
-                    className="btn btn-round btn-round-large btn-opposite slide-right-up anim-no-delay"
-                    href="#contact"
-                  >
-                    <i className="ph ph-arrow-up-right" />
-                  </Link>
+                  <AnimatedButton text="Join Waitlist" className="btn btn-anim btn-default btn-outline slide-right-up" href="/contact">
+                    <i className="ph-bold ph-arrow-up-right" />
+                  </AnimatedButton>
                 </div>
                 <div className="mxd-services-stack__title width-60">
                   <h3>
                     Canvas
                     <span className="tag tag-default tag-outline" style={{ marginLeft: "1rem", fontSize: "0.6em", verticalAlign: "middle" }}>
-                      🎨 Coming Soon
+                      Coming Soon
                     </span>
                   </h3>
                 </div>
@@ -119,8 +113,8 @@ export default function Platforms() {
                     <span className="tag tag-default tag-outline">Industrial</span>
                   </div>
                   <p className="t-small-mobile">
-                    Self-serve WebAR builder. Create instant industrial
-                    visualization without code, design skills, or headsets.
+                    We&apos;re building the transformation for you. Self-serve
+                    WebAR for effortless visualization.
                   </p>
                 </div>
                 <div className="services-stack__image">
@@ -129,7 +123,7 @@ export default function Platforms() {
                     className="service-img service-img-m"
                     alt="Canvas Platform"
                     src="/img/gif/output.gif"
-                    style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
+                    style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)", filter: "blur(3px)" }}
                   />
                 </div>
               </div>
@@ -139,6 +133,13 @@ export default function Platforms() {
         </div>
         {/* Block - Platforms Stacking Cards End */}
       </div>
+      <style>{`
+        .btn-disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          pointer-events: none;
+        }
+      `}</style>
     </div>
   );
 }

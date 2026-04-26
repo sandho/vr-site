@@ -1,5 +1,6 @@
 import GrahasHeader from "@/components/homes/grahas-vr/GrahasHeader";
 import Footer from "@/components/homes/grahas-vr/Footer";
+import GrahasBreadcrumbs from "@/components/homes/grahas-vr/GrahasBreadcrumbs";
 
 export default function GrahasVRLayout({
   children,
@@ -18,13 +19,9 @@ export default function GrahasVRLayout({
           --additional--dark: #0584c7;
           --additional-rgb--dark: 5, 132, 199;
         }
-        .breadcrumbs__nav,
-        .inner-headline__breadcrumbs,
-        .mxd-breadcrumbs {
-          display: none !important;
-        }
       `}</style>
       <GrahasHeader />
+      <GrahasBreadcrumbs />
       {children}
       <Footer />
     </>

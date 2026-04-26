@@ -7,8 +7,8 @@ const partnerTypes = [
     number: "01",
     headline: "Co-Create Enterprise XR",
     copy:
-      "Are you an institution, system integrator, or enterprise technology provider? Partner with us to co-create and deploy custom XR solutions at scale — Digital Twins, Training Simulators, and Spatial Experiences built around your clients' SOPs.",
-    tags: ["Enterprise", "Co-Development", "Revenue Share"],
+      "Co-create and deploy custom XR solutions for large-scale enterprise and institutional needs.",
+    tags: ["ISV", "Enterprise", "Institutional"],
     accent: false,
   },
   {
@@ -16,8 +16,8 @@ const partnerTypes = [
     number: "02",
     headline: "Sell Done-For-You WebAR",
     copy:
-      "Bring the Spatial Web to your SMB clients through GRAHAs Spaces. You open the door — we handle 3D modelling and deployment. Standalone WebAR delivered in 72 hours. Immediate commission payouts upon client clearance.",
-    tags: ["WebAR", "White-Label", "Instant Commission"],
+      "Sell Done-For-You WebAR to your SMB clients. You open the door, we handle the 3D modeling and development. Immediate commission payouts upon client clearance.",
+    tags: ["Spaces", "WebAR", "Channel"],
     accent: true,
   },
 ];
@@ -44,7 +44,7 @@ export default function Partners() {
                   >
                     We are expanding our ecosystem. Whether you are an institution
                     looking to integrate cutting-edge XR into your curriculum, or an
-                    agency looking to bring the Spatial Web to your clients — we have
+                    agency looking to bring the &quot;Spatial Web&quot; to your clients, we have
                     a model for you.
                   </p>
                 </div>
@@ -53,58 +53,67 @@ export default function Partners() {
           </div>
         </div>
 
-        {/* Partner Cards */}
         <div className="mxd-block">
-          <div className="mxd-services-cards-s">
-            <div className="container-fluid px-0">
-              <div className="row gx-0">
-                {partnerTypes.map((p) => (
-                  <div
-                    key={p.number}
-                    className="col-12 col-xl-6 mxd-services-cards-s__item mxd-grid-item anim-uni-scale-in-right"
-                  >
-                    <div
-                      className={`mxd-services-cards-s__inner justify-center radius-l padding-4 ${
-                        p.accent ? "bg-accent" : "bg-base-tint"
-                      }`}
-                    >
-                      <div className="mxd-services-cards-s__title">
-                        <p
-                          className="t-small anim-uni-in-up"
-                          style={{ opacity: 0.5 }}
+          <div className="container-fluid px-0">
+            <div className="row gx-0 align-items-stretch">
+              <div className="col-12 col-xl-7">
+                <div className="mxd-services-cards-s">
+                  <div className="container-fluid px-0">
+                    <div className="row gx-0">
+                      {partnerTypes.map((p) => (
+                        <div
+                          key={p.number}
+                          className="col-12 mxd-services-cards-s__item mxd-grid-item anim-uni-scale-in-right"
                         >
-                          {p.number}
-                        </p>
-                        <p
-                          className={`t-small anim-uni-in-up ${p.accent ? "" : ""}`}
-                          style={{ opacity: 0.6, marginTop: "0.25rem" }}
-                        >
-                          {p.type}
-                        </p>
-                        <h3 className={`anim-uni-in-up${p.accent ? " opposite" : ""}`}>
-                          {p.headline}
-                        </h3>
-                      </div>
-                      <div className="mxd-services-cards-s__info">
-                        <div className="mxd-services-cards-s__tags">
-                          {p.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className={`tag tag-default anim-uni-in-up ${
-                                p.accent ? "tag-outline-opposite" : "tag-outline"
-                              }`}
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                          <div
+                            className={`mxd-services-cards-s__inner justify-center radius-l padding-4 ${
+                              p.accent ? "bg-accent" : "bg-base-tint"
+                            }`}
+                          >
+                            <div className="mxd-services-cards-s__title">
+                              <p className="t-small anim-uni-in-up" style={{ opacity: 0.5 }}>
+                                {p.number}
+                              </p>
+                              <p className="t-small anim-uni-in-up" style={{ opacity: 0.6, marginTop: "0.25rem" }}>
+                                {p.type}
+                              </p>
+                              <h3 className={`anim-uni-in-up${p.accent ? " opposite" : ""}`}>
+                                {p.headline}
+                              </h3>
+                            </div>
+                            <div className="mxd-services-cards-s__info">
+                              <div className="mxd-services-cards-s__tags">
+                                {p.tags.map((tag) => (
+                                  <span
+                                    key={tag}
+                                    className={`tag tag-default anim-uni-in-up ${
+                                      p.accent ? "tag-outline-opposite" : "tag-outline"
+                                    }`}
+                                  >
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                              <p className={`anim-uni-in-up${p.accent ? " t-opposite" : ""}`}>
+                                {p.copy}
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                        <p className={`anim-uni-in-up${p.accent ? " t-opposite" : ""}`}>
-                          {p.copy}
-                        </p>
-                      </div>
+                      ))}
                     </div>
                   </div>
-                ))}
+                </div>
+              </div>
+              <div className="col-12 col-xl-5 mxd-grid-item no-margin">
+                <div className="partner-network anim-uni-in-up">
+                  <div className="partner-network__hub">GRAHAs VR</div>
+                  {["Institutions", "Agencies", "Enterprises", "SMBs"].map((label, index) => (
+                    <div className={`partner-network__node partner-network__node--${index + 1}`} key={label}>
+                      {label}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -122,6 +131,48 @@ export default function Partners() {
         </div>
 
       </div>
+      <style>{`
+        .partner-network {
+          position: relative;
+          min-height: 100%;
+          aspect-ratio: 1 / 1;
+          border-radius: 0.5rem;
+          background: var(--color-base-tint, #f6f3ef);
+          overflow: hidden;
+        }
+        .partner-network:before {
+          content: "";
+          position: absolute;
+          inset: 18%;
+          border: 1px solid rgba(127,127,127,0.22);
+          border-radius: 50%;
+        }
+        .partner-network__hub,
+        .partner-network__node {
+          position: absolute;
+          display: grid;
+          place-items: center;
+          text-align: center;
+          border-radius: 50%;
+          font-weight: 650;
+        }
+        .partner-network__hub {
+          inset: 36%;
+          background: var(--accent--light, #0584c7);
+          color: #fff;
+        }
+        .partner-network__node {
+          width: 8.5rem;
+          height: 8.5rem;
+          background: var(--color-base, #fff);
+          box-shadow: 0 1rem 3rem rgba(0,0,0,0.08);
+          font-size: 0.95rem;
+        }
+        .partner-network__node--1 { top: 10%; left: 12%; }
+        .partner-network__node--2 { top: 13%; right: 10%; }
+        .partner-network__node--3 { bottom: 12%; left: 13%; }
+        .partner-network__node--4 { bottom: 10%; right: 12%; }
+      `}</style>
     </div>
   );
 }

@@ -2,8 +2,6 @@ import { Metadata } from "next";
 
 import Hero from "@/components/homes/grahas-vr/Hero";
 import SocialProof from "@/components/homes/grahas-vr/SocialProof";
-import Stats from "@/components/homes/grahas-vr/Stats";
-import About from "@/components/homes/grahas-vr/About";
 import WhatWeBuild from "@/components/homes/grahas-vr/WhatWeBuild";
 import Projects from "@/components/homes/grahas-vr/Projects";
 import CaseStudy from "@/components/homes/grahas-vr/CaseStudy";
@@ -12,7 +10,6 @@ import StepFramework from "@/components/homes/grahas-vr/StepFramework";
 import Partners from "@/components/homes/grahas-vr/Partners";
 import Industries from "@/components/homes/grahas-vr/Industries";
 import Team from "@/components/homes/grahas-vr/Team";
-import Cta from "@/components/homes/grahas-vr/Cta";
 
 export const metadata: Metadata = {
   title: "GRAHAs VR — Engineering-Grade XR for Industry",
@@ -29,8 +26,6 @@ export default function GrahasVRPage() {
     <main id="mxd-page-content" className="mxd-page-content">
       <Hero />
       <SocialProof />
-      <Stats />
-      <About />
       <WhatWeBuild />
       <Projects />
       <CaseStudy />
@@ -39,7 +34,6 @@ export default function GrahasVRPage() {
       <Partners />
       <Industries />
       <Team />
-      <Cta />
     </main>
   );
 }

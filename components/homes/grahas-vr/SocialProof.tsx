@@ -1,109 +1,113 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const logos = [
-  { name: "NASSCOM Emerge 50",       src: "/img/social/emerge50-logo.jpg" },
-  { name: "Startup Grind",           src: "/img/social/Startupgrind.png" },
-  { name: "Google for Startups",     src: "/img/social/GCP.jpg" },
-  { name: "CII",                     src: "/img/social/Official_logo_of_the_Confederation_of_Indian_Industry_(CII).svg.png" },
-  { name: "IIT Madras",              src: "/img/social/iit-madras-indian-institute-of-technology-madras4653.jpg" },
-  { name: "FICCI",                   src: "/img/social/FICCI Logo.png" },
-  { name: "Microsoft for Startups",  src: "/img/social/Microsoft for Startups - Banner.png" },
-  // { name: "NVIDIA",                  src: "/img/social/Nvidia_fb.png" },
-  { name: "Kritilabs",               src: "/img/social/kritilabs_logo.jpeg" },
-  { name: "Radisson Blu",            src: "/img/social/Radisson_Blu_logo.svg.png" },
-  { name: "Aizant",                  src: "/img/social/Aizant Logo.jpg" },
-  { name: "SIPCOT",                  src: "/img/social/SIPCOT-LOGO-01.png" },
-  // { name: "Bluetooth SIG",           src: "/img/social/Bluetooth SIG Community - Updated.png" },
-  { name: "Monotech Systems",        src: "/img/social/monotech-systems-ltd-logo-vector.png" },
-  { name: "IJITCE",                  src: "/img/social/IJITCE-logo.png" },
+  { name: "TVS Group" },
+  { name: "IIT Mandi Catalyst" },
+  { name: "Vel Tech TBI" },
+  { name: "NASSCOM Emerge 50", src: "/img/social/emerge50-logo.jpg" },
+  { name: "Startup Grind", src: "/img/social/Startupgrind.png" },
+  { name: "Google for Startups", src: "/img/social/GCP.jpg" },
+  { name: "CII", src: "/img/social/Official_logo_of_the_Confederation_of_Indian_Industry_(CII).svg.png" },
+  { name: "Available on Meta Store", src: "/img/social/meta-quest-seeklogo.png", href: "https://www.meta.com/experiences/" },
 ];
 
 export default function SocialProof() {
   return (
-    <div className="mxd-section padding-default">
+    <div className="mxd-section padding-pre-title">
       <div className="mxd-container grid-container">
         <div className="mxd-block">
-
-          {/* Heading */}
-          <p
-            className="t-small"
-            style={{
-              opacity: 0.45,
-              marginBottom: "2rem",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              textAlign: "center",
-            }}
-          >
-            Trusted by Innovation Leaders
-          </p>
-
-          {/* Logo grid — 6 per row desktop, 4 tablet, 3 mobile */}
-          <div className="sp-logo-grid">
-            {logos.map((logo) => (
-              <div key={logo.name} className="sp-logo-item" title={logo.name}>
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  fill
-                  sizes="(max-width: 575px) 30vw, (max-width: 991px) 22vw, 14vw"
-                  style={{ objectFit: "contain", objectPosition: "center center" }}
-                />
+          <div className="mxd-section-title">
+            <div className="container-fluid p-0">
+              <div className="row g-0">
+                <div className="col-12 col-xl-6 mxd-grid-item no-margin">
+                  <div className="mxd-section-title__hrtitle anim-uni-in-up">
+                    <h2>Trusted by Innovation Leaders</h2>
+                  </div>
+                </div>
+                <div className="col-12 col-xl-6 mxd-grid-item no-margin">
+                  <div className="mxd-section-title__hrdescr">
+                    <p className="anim-uni-in-up">
+                      Enterprise teams, accelerators, and ecosystem partners
+                      backing practical immersive technology.
+                    </p>
+                  </div>
+                </div>
               </div>
-            ))}
-
-            {/* Meta Quest Store */}
-            <Link
-              href="https://www.meta.com/experiences/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sp-logo-item"
-            >
-              <Image
-                src="/img/social/meta-quest-seeklogo.png"
-                alt="Available on Meta Quest Store"
-                fill
-                sizes="(max-width: 575px) 30vw, (max-width: 991px) 22vw, 14vw"
-                style={{ objectFit: "contain", objectPosition: "center center" }}
-              />
-            </Link>
+            </div>
           </div>
+        </div>
 
+        <div className="mxd-block">
+          <div className="mxd-partners-cards">
+            <div className="container-fluid p-0">
+              <div className="row g-0">
+                {logos.map((logo) => {
+                  const content = (
+                    <div className="mxd-partners-cards__logo grahas-partner-logo">
+                      {logo.src ? (
+                        <Image
+                          alt={logo.name}
+                          src={logo.src}
+                          width={260}
+                          height={120}
+                        />
+                      ) : (
+                        <span>{logo.name}</span>
+                      )}
+                    </div>
+                  );
+
+                  return (
+                    <div
+                      key={logo.name}
+                      className="col-12 col-md-6 col-xl-3 mxd-partners-cards__item mxd-grid-item animate-card-4"
+                    >
+                      {logo.href ? (
+                        <a
+                          className="mxd-partners-cards__inner"
+                          href={logo.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {content}
+                        </a>
+                      ) : (
+                        <div className="mxd-partners-cards__inner">
+                          {content}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <style>{`
-        .sp-logo-grid {
+        .grahas-partner-logo {
+          width: min(18rem, 72%);
+          min-height: 6rem;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-          gap: 2.5rem 3rem;
-          align-items: center;
-          justify-items: center;
-          justify-content: center;
-          text-align: center;
+          place-items: center;
         }
-        .sp-logo-item {
-          position: relative;
+        .grahas-partner-logo img {
           width: 100%;
-          height: 8rem;
-          opacity: 1;
+          height: auto;
+          max-height: 8rem;
+          object-fit: contain;
+        }
+        .grahas-partner-logo span {
           display: block;
-          text-decoration: none;
+          color: var(--t-bright);
+          opacity: 0.68;
+          font: normal var(--fw-medium) 2.2rem/1.1 var(--_font-accent);
+          text-align: center;
+          transition: opacity var(--_animspeed-slow) ease;
         }
-        @media (max-width: 991px) {
-          .sp-logo-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem 1.5rem;
-          }
-          .sp-logo-item { height: 6rem; }
-        }
-        @media (max-width: 575px) {
-          .sp-logo-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.75rem 1.25rem;
-          }
-          .sp-logo-item { height: 5rem; }
+        .no-touch .mxd-partners-cards__inner:hover .grahas-partner-logo span {
+          opacity: 1;
         }
       `}</style>
     </div>

@@ -1,92 +1,132 @@
-import Image from "next/image";
+import RevealText from "@/components/animation/RevealText";
+import AnimatedButton from "@/components/animation/AnimatedButton";
+
+const features = [
+  "100% Customized: Built on your specific machinery/environment.",
+  "Cross-Platform: VR, AR, MR, and Web-based.",
+  "Proven ROI: Reduced training time and operational errors.",
+];
 
 export default function WhatWeBuild() {
   return (
-    <div id="solutions" className="mxd-section overflow-hidden padding-pre-title">
+    <section id="solutions" className="mxd-section padding-pre-grid">
       <div className="mxd-container grid-container">
-        {/* Block - Services Cards Start */}
         <div className="mxd-block">
-          <div className="mxd-services-cards-s">
-            <div className="container-fluid px-0">
-              <div className="row gx-0">
-
-                {/* 01 — Digital Twins */}
-                <div className="col-12 col-xl-4 mxd-services-cards-s__item mxd-grid-item anim-uni-scale-in-right">
-                  <div className="mxd-services-cards-s__inner justify-center bg-base-tint radius-l padding-4">
-                    <div className="mxd-services-cards-s__title">
-                      <p className="t-small anim-uni-in-up" style={{ opacity: 0.5 }}>01</p>
-                      <h3 className="anim-uni-in-up">
-                        Digital Twins
-                      </h3>
-                    </div>
-                    <div className="mxd-services-cards-s__info">
-                      <div className="mxd-services-cards-s__tags">
-                        <span className="tag tag-default tag-outline anim-uni-in-up">Manufacturing</span>
-                        <span className="tag tag-default tag-outline anim-uni-in-up">Industrial</span>
-                        <span className="tag tag-default tag-outline anim-uni-in-up">Data-Connected</span>
-                        <span className="tag tag-default tag-outline anim-uni-in-up">VR / Web</span>
-                      </div>
-                      <p className="anim-uni-in-up">
-                        Photorealistic 1:1 replicas of your machinery and
-                        environments. Interactive, data-connected, and deployable
-                        on VR or web — with engineering-level fidelity.
-                      </p>
-                    </div>
-                  
+          <div className="container-fluid p-0">
+            <div className="row g-0 align-items-center">
+              <div className="col-12 col-xl-5 mxd-grid-item no-margin">
+                <div className="mxd-section-title no-margin-desktop">
+                  <div className="mxd-section-title__title anim-uni-in-up">
+                    <RevealText as="h2" className="reveal-type">
+                      Tailored XR Solutions for Your Enterprise.
+                    </RevealText>
+                  </div>
+                  <div className="mxd-section-title__descr anim-uni-in-up">
+                    <p>
+                      We don&apos;t believe in one-size-fits-all. We build
+                      Digital Twins, Training Simulators, and Marketing
+                      Experiences specific to your SOPs.
+                    </p>
+                  </div>
+                  <ul className="grahas-feature-list anim-uni-in-up">
+                    {features.map((feature) => (
+                      <li key={feature}>
+                        <i className="ph-bold ph-check" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mxd-section-title__controls anim-uni-in-up">
+                    <AnimatedButton
+                      text="Start Your Pilot Project"
+                      className="btn btn-anim btn-default btn-outline slide-right-up"
+                      href="/contact"
+                    >
+                      <i className="ph-bold ph-arrow-up-right" />
+                    </AnimatedButton>
                   </div>
                 </div>
-
-                {/* 02 — VR Training */}
-                <div className="col-12 col-xl-4 mxd-services-cards-s__item mxd-grid-item anim-uni-scale-in-left">
-                  <div className="mxd-services-cards-s__inner justify-center bg-accent radius-l padding-4">
-                    <div className="mxd-services-cards-s__title">
-                      <p className="t-small anim-uni-in-up" style={{ opacity: 0.6 }}>02</p>
-                      <h3 className="opposite anim-uni-in-up">VR Training</h3>
-                    </div>
-                    <div className="mxd-services-cards-s__info">
-                      <div className="mxd-services-cards-s__tags">
-                        <span className="tag tag-default tag-outline-opposite anim-uni-in-up">Safety</span>
-                        <span className="tag tag-default tag-outline-opposite anim-uni-in-up">Onboarding</span>
-                        <span className="tag tag-default tag-outline-opposite anim-uni-in-up">STEP Framework™</span>
-                      </div>
-                      <p className="t-opposite anim-uni-in-up">
-                        Immersive training simulators that reduce onboarding time
-                        by 40%. Built on our proprietary STEP Framework™ —
-                        story, tension, emotion, place.
-                      </p>
-                    </div>
+              </div>
+              <div className="col-12 col-xl-7 mxd-grid-item no-margin">
+                <div className="digital-twin-split anim-uni-in-up">
+                  <div className="digital-twin-panel">
+                    <span>Real Machine</span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/img/works/preview/1920x1080_prv-04.webp" alt="Real industrial machine reference" />
+                  </div>
+                  <div className="digital-twin-panel">
+                    <span>Digital Twin</span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/img/gif/output.gif" alt="Digital twin simulation preview" />
                   </div>
                 </div>
-
-                {/* 03 — AR Visualization */}
-                <div className="col-12 col-xl-4 mxd-services-cards-s__item mxd-grid-item anim-uni-scale-in-right">
-                  <div className="mxd-services-cards-s__inner justify-center bg-additional radius-l padding-4">
-                    <div className="mxd-services-cards-s__title">
-                      <p className="t-small anim-uni-in-up" style={{ opacity: 0.6 }}>03</p>
-                      <h3 className="anim-uni-in-up">AR Visualization</h3>
-                    </div>
-                    <div className="mxd-services-cards-s__info">
-                      <div className="mxd-services-cards-s__tags">
-                        <span className="tag tag-default tag-outline anim-uni-in-up">WebAR</span>
-                        <span className="tag tag-default tag-outline anim-uni-in-up">Visualization</span>
-                        <span className="tag tag-default tag-outline anim-uni-in-up">Real Estate</span>
-                        <span className="tag tag-default tag-outline anim-uni-in-up">No Headset</span>
-                      </div>
-                      <p className="t-bright anim-uni-in-up">
-                        Web-based AR that lets clients explore spaces, products,
-                        and processes in real context — without a headset. Runs
-                        in any browser.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
         </div>
-        {/* Block - Services Cards End */}
       </div>
-    </div>
+
+      <style>{`
+        .grahas-feature-list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.9rem;
+          padding: 0;
+          margin: 2rem 0 0;
+          list-style: none;
+        }
+        .grahas-feature-list li {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+        .grahas-feature-list i {
+          color: var(--accent--light, #0584c7);
+          font-size: 1.25rem;
+          margin-top: 0.2rem;
+        }
+        .digital-twin-split {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.75rem;
+          min-height: clamp(28rem, 42vw, 54rem);
+        }
+        .digital-twin-panel {
+          position: relative;
+          overflow: hidden;
+          border-radius: 0.5rem;
+          background: #111;
+        }
+        .digital-twin-panel img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          opacity: 0.9;
+        }
+        .digital-twin-panel span {
+          position: absolute;
+          z-index: 2;
+          top: 1rem;
+          left: 1rem;
+          padding: 0.45rem 0.7rem;
+          border-radius: 999px;
+          color: #fff;
+          background: rgba(0,0,0,0.56);
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+        }
+        @media (max-width: 767px) {
+          .digital-twin-split {
+            grid-template-columns: 1fr;
+            min-height: auto;
+          }
+          .digital-twin-panel {
+            aspect-ratio: 4 / 3;
+          }
+        }
+      `}</style>
+    </section>
   );
 }

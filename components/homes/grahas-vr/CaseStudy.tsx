@@ -1,43 +1,37 @@
 import RevealText from "@/components/animation/RevealText";
 import AnimatedButton from "@/components/animation/AnimatedButton";
-import Counter from "@/components/common/Counter";
 
 const caseStats = [
-  { number: 12000, suffix: "+", label: "Trainees\nOnboarded" },
-  { number: 40, suffix: "%", label: "Time\nReduction" },
-  { number: 0, suffix: "", label: "Operational\nErrors" },
+  { icon: "ph-trend-down", label: "40% Reduction in Training Time" },
+  { icon: "ph-check-circle", label: "Standardized TPM Audits" },
+  { icon: "ph-rocket-launch", label: "Faster New Hire Onboarding" },
 ];
 
 export default function CaseStudy() {
   return (
     <div className="mxd-section padding-grid-pre-mtext">
-      <div className="mxd-container no-padding-container">
+      <div className="mxd-container grid-container">
         {/* Block - Featured Case Study Start */}
         <div className="mxd-block">
           <div className="container-fluid px-0">
-            <div className="row gx-0">
-              {/* Left — Label + Title */}
-              <div className="col-12 col-xl-6">
-                <div className="mxd-container grid-container">
-                  <div className="mxd-block">
+            <div className="row gx-0 align-items-stretch">
+              <div className="col-12 col-xl-5">
                     <div className="mxd-section-title no-margin-desktop">
                       <div className="container-fluid p-0">
                         <div className="row g-0">
                           <div className="col-12 mxd-grid-item no-margin">
                             <div className="mxd-section-title__title anim-uni-in-up">
                               <RevealText as="h2" className="reveal-type">
-                                Featured
-                                <br />
-                                Case.
+                                40% Faster Training: The TVS Group Implementation.
                               </RevealText>
                             </div>
                           </div>
                           <div className="col-12 mxd-grid-item no-margin">
                             <div className="mxd-section-title__descr">
                               <p className="anim-uni-in-up">
-                                Real Talent Engineering (TVS Group) transformed
-                                shop-floor learning with GRAHAs VR — slashing
-                                onboarding time and earning praise from Japanese
+                                See how Real Talent Engineering (TVS Group) moved
+                                from manual SOPs to immersive VR, slashing
+                                training times and earning praise from Japanese
                                 JIPM Auditors.
                               </p>
                             </div>
@@ -47,7 +41,7 @@ export default function CaseStudy() {
                               <AnimatedButton
                                 text="Read Full Case Study"
                                 className="btn btn-anim btn-default btn-outline slide-right-up"
-                                href={`/project-details`}
+                                href="https://casestudy.grahasvr.space/"
                               >
                                 <i className="ph-bold ph-arrow-up-right" />
                               </AnimatedButton>
@@ -56,36 +50,25 @@ export default function CaseStudy() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
               </div>
 
-              {/* Right — Testimonial Card */}
-              <div className="col-12 col-xl-6" style={{ display: "flex" }}>
-                <div className="mxd-container grid-container" style={{ display: "flex", flexDirection: "column" }}>
+              <div className="col-12 col-xl-7" style={{ display: "flex" }}>
                 <div className="anim-uni-in-up" style={{ width: "100%", flex: 1 }}>
                   <div className="mxd-testimonials-card bg-base-tint radius-m" style={{ width: "100%", maxWidth: "100%", height: "100%", margin: 0 }}>
+                    <div className="case-study-media">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/img/gif/output.gif" alt="TVS workers using VR headset in a training room" />
+                    </div>
                     <div className="mxd-testimonials-card__content">
-                      {/* Stats row */}
                       <div className="mxd-testimonials-card__media anim-uni-in-up">
                         <div className="container-fluid p-0">
-                          <div className="row g-0">
+                          <div className="row g-3">
                             {caseStats.map((stat, i) => (
                               <div key={i} className="col-4">
-                                <div className="mxd-counter">
-                                  <p className="mxd-stats-number" style={{ fontSize: "2rem" }}>
-                                    <Counter max={stat.number} />
-                                    {stat.suffix}
-                                  </p>
+                                <div className="case-study-stat">
+                                  <i className={`ph-bold ${stat.icon}`} />
+                                  <p className="t-small t-bright">{stat.label}</p>
                                 </div>
-                                <p className="t-small t-bright">
-                                  {stat.label.split("\n").map((line, j, arr) => (
-                                    <span key={j}>
-                                      {line}
-                                      {j < arr.length - 1 && <br />}
-                                    </span>
-                                  ))}
-                                </p>
                               </div>
                             ))}
                           </div>
@@ -95,27 +78,12 @@ export default function CaseStudy() {
                       {/* Quote */}
                       <div className="mxd-testimonials-card__text">
                         <p className="anim-uni-in-up">
-                          &ldquo;The level of realism and the precision of the
-                          digital twin genuinely impressed our JIPM auditors —
-                          they had never seen anything like it on a shop
-                          floor.&rdquo;
+                          Immersive SOP training helped teams practice repeatable
+                          TPM procedures before entering the shop-floor workflow.
                         </p>
                       </div>
                     </div>
-
-                    {/* Author */}
-                    <div className="mxd-testimonials-card__author">
-                      <h5 className="mxd-testimonials-card__name anim-uni-in-up">
-                        Real Talent Engineering
-                      </h5>
-                      <p className="mxd-testimonials-card__position t-small anim-uni-in-up">
-                        Training Division,{" "}
-                        <a href="#">TVS Group</a>
-                        {" "}· JIPM Auditor Approved
-                      </p>
-                    </div>
                   </div>
-                </div>
                 </div>
               </div>
 
@@ -124,6 +92,39 @@ export default function CaseStudy() {
         </div>
         {/* Block - Featured Case Study End */}
       </div>
+      <style>{`
+        .case-study-media {
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          border-radius: var(--radius-m, 0.5rem);
+          margin-bottom: 2rem;
+          background: #111;
+        }
+        .case-study-media img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .case-study-stat {
+          height: 100%;
+          min-height: 10rem;
+          padding: 1.25rem;
+          border-radius: var(--radius-s, 0.5rem);
+          background: rgba(var(--accent-rgb), 0.08);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 1rem;
+        }
+        .case-study-stat i {
+          color: var(--accent);
+          font-size: 2.4rem;
+        }
+        .case-study-stat p {
+          margin: 0;
+        }
+      `}</style>
     </div>
   );
 }

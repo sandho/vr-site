@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import StepFramework from "@/components/homes/grahas-vr/StepFramework";
-import Cta from "@/components/homes/grahas-vr/Cta";
 
 export const metadata: Metadata = {
   title: "STEP Framework™ — GRAHAs VR",
@@ -12,7 +11,6 @@ export default function StepFrameworkPage() {
   return (
     <main id="mxd-page-content" className="mxd-page-content">
       <StepFramework />
-      <Cta />
     </main>
   );
 }

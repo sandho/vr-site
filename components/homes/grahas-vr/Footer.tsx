@@ -1,17 +1,17 @@
 import AnimatedButton from "@/components/animation/AnimatedButton";
 
 const navLinks = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Work", href: "#projects" },
-  { label: "Platforms", href: "#platforms" },
-  { label: "Team", href: "#team" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Work", href: "/work" },
+  { label: "Platforms", href: "/platforms" },
+  { label: "Partners", href: "/partners" },
+  { label: "Team", href: "/team" },
   { label: "Start Pilot", href: "/contact" },
 ];
 
 const socials = [
-  { title: "LinkedIn", url: "https://linkedin.com" },
-  { title: "Twitter", url: "https://twitter.com" },
-  { title: "YouTube", url: "https://youtube.com" },
+  { title: "LinkedIn", icon: "ph-linkedin-logo", url: "https://www.linkedin.com/company/grahas-vr/" },
+  { title: "YouTube", icon: "ph-youtube-logo", url: "https://www.youtube.com/@grahasvr" },
 ];
 
 const StarIcon = () => (
@@ -63,16 +63,14 @@ export default function Footer() {
               <ul className="footer-nav">
                 {navLinks.map((item, idx) => (
                   <li className="footer-nav__item anim-uni-in-up" key={idx}>
-                    <AnimatedButton
-                      href={item.href}
-                      text={item.label}
-                      className="footer-nav__link btn-anim"
-                    />
+                    <a href={item.href} className="footer-nav__link">
+                      {item.label}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="footer-blocks__links anim-uni-in-up">
+            {/* <div className="footer-blocks__links anim-uni-in-up">
               <AnimatedButton
                 text="Privacy Policy"
                 as={"a"}
@@ -81,7 +79,7 @@ export default function Footer() {
               >
                 <i className="ph ph-arrow-right" />
               </AnimatedButton>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -97,11 +95,11 @@ export default function Footer() {
               </p>
               <p className="mxd-point-subtitle anim-uni-in-up t-small">
                 <StarIcon />
-                <span>AC Tech Campus, Anna University, Chennai</span>
+                <span>Platinum Jubilee Building, AC Tech Campus, Anna University, Chennai</span>
               </p>
               <p className="mxd-point-subtitle anim-uni-in-up t-small">
                 <StarIcon />
-                <span>No. 42, Avadi–Vel Tech Road, Avadi, Chennai 600 062</span>
+                <span>HQ: No. 42, Avadi - Vel Tech Road, Avadi, Chennai - 600 062</span>
               </p>
             </div>
           </div>
@@ -126,7 +124,7 @@ export default function Footer() {
           <div className="footer-blocks__card fullheight-card">
             <div className="footer-blocks__block">
               <div className="footer-blocks__title anim-uni-in-up">
-                <p className="footer-blocks__title-l">Ecosystem</p>
+                <p className="footer-blocks__title-l">Social</p>
               </div>
               <div className="footer-blocks__socials">
                 <ul className="footer-socials">
@@ -136,23 +134,54 @@ export default function Footer() {
                         href={social.url}
                         className="footer-socials__link"
                         target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.title}
                       >
-                        {social.title}
+                        <i className={`ph-bold ${social.icon}`} />
+                        <span>{social.title}</span>
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
+            <div className="footer-map anim-uni-in-up">
+              <iframe
+                title="GRAHAs VR AC Tech Campus location"
+                src="https://www.google.com/maps?q=Platinum%20Jubilee%20Building%2C%20AC%20Tech%20Campus%2C%20Anna%20University%2C%20Chennai&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
             <div className="footer-blocks__links anim-uni-in-up">
               <p className="t-xsmall t-muted">
                 © {new Date().getFullYear()} GRAHAs VR. Engineered Humanity.{" "}
-                Built by Antigravity AI.
               </p>
             </div>
           </div>
         </div>
       </div>
+      <style>{`
+        .footer-socials__link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+        }
+        .footer-map {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          border-radius: var(--_radius-s);
+          background: var(--base-tint);
+          margin: 2rem 0;
+        }
+        .footer-map iframe {
+          width: 100%;
+          height: 100%;
+          border: 0;
+          display: block;
+        }
+      `}</style>
     </footer>
   );
 }

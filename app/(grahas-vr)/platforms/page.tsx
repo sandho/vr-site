@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Platforms from "@/components/homes/grahas-vr/Platforms";
-import Cta from "@/components/homes/grahas-vr/Cta";
 
 export const metadata: Metadata = {
   title: "Platforms — GRAHAs VR",
@@ -12,7 +11,6 @@ export default function PlatformsPage() {
   return (
     <main id="mxd-page-content" className="mxd-page-content">
       <Platforms />
-      <Cta />
     </main>
   );
 }

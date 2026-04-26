@@ -9,8 +9,9 @@ import ThemeSwitcherButton from "@/components/headers/ColorSwitcher";
 const navLinks = [
   { label: "Solutions", href: "/solutions" },
   { label: "Work", href: "/work" },
+  { label: "Case Study", href: "/case-study" },
   { label: "Platforms", href: "/platforms" },
-  { label: "STEP Framework", href: "/step-framework" },
+  { label: "Partners", href: "/partners" },
   { label: "Team", href: "/team" },
 ];
 
@@ -128,7 +129,7 @@ export default function GrahasHeader() {
       {/* ── Mobile / Full-screen Nav Overlay ── */}
       <nav
         ref={navWrapRef}
-        className="mxd-nav__wrap"
+        className={`mxd-nav__wrap ${menuOpen ? "active_menu" : ""}`}
         data-lenis-prevent=""
       >
         {/* Hamburger trigger */}
@@ -148,7 +149,10 @@ export default function GrahasHeader() {
         </div>
 
         {/* Full-screen menu — hidden by CSS display:none; shown by GSAP */}
-        <div ref={menuWrapperRef} className="mxd-menu__wrapper">
+        <div
+          ref={menuWrapperRef}
+          className={`mxd-menu__wrapper ${menuOpen ? "active_menu" : ""}`}
+        >
           <div ref={menuBaseRef} className="mxd-menu__base" />
           <div className="mxd-menu__contain">
             <div ref={menuInnerRef} className="mxd-menu__inner">
@@ -237,7 +241,9 @@ export default function GrahasHeader() {
       {/* ── Header Bar ── */}
       <header
         id="header"
-        className={`mxd-header ${isHidden ? "is-hidden" : ""}`}
+        className={`mxd-header ${isHidden ? "is-hidden" : ""} ${
+          menuOpen ? "menu-is-visible" : ""
+        }`}
       >
         {/* Logo */}
         <div className="mxd-header__logo loading__fade">

@@ -2,11 +2,15 @@
 
 import { useEffect, useState } from "react";
 import VelocityMarquee from "@/components/animation/VelocityMarquee";
+import AnimatedButton from "@/components/animation/AnimatedButton";
 
-// ── Adjust to your GIF's actual first-loop duration ──────────────────────────
 const GIF_FIRST_LOOP_MS = 4000;
-// Duration of the overlay-exit + layout-reveal transition
 const TRANSITION_MS = 1000;
+// Replace this with "/video/hero/GRAHAs VR - XR Solutions_Website Version.mp4"
+// after the final SharePoint video is added to public/video/hero/.
+const HERO_VIDEO_MP4 = "/video/hero/hero-video-01.mp4";
+const HERO_VIDEO_WEBM = "/video/hero/hero-video-01.webm";
+const HERO_VIDEO_POSTER = "/video/hero/hero-video-01.webp";
 
 const StarSvg = () => (
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20">
@@ -14,184 +18,168 @@ const StarSvg = () => (
   </svg>
 );
 
-// ── Each item maps to its own GIF — swap paths when you have individual GIFs ──
-const ITEMS = [
-  { label: "Digital Twins",     gif: "/img/gif/output.gif" },
-  { label: "VR Training",       gif: "/img/gif/output.gif" },
-  { label: "AR Visualization",  gif: "/img/gif/output.gif" },
-  { label: "STEP Framework™",   gif: "/img/gif/output.gif" },
-  { label: "Industrial XR",     gif: "/img/gif/output.gif" },
-  { label: "Spatial Computing", gif: "/img/gif/output.gif" },
-  { label: "Enterprise XR",     gif: "/img/gif/output.gif" },
-  { label: "WebAR",             gif: "/img/gif/output.gif" },
-];
-
-// Auto-cycle interval (ms)
-const CYCLE_MS = 3000;
-
 const marqueeItems = [
-  "digital twins", "vr training", "ar visualization", "step framework™",
-  "industrial xr", "meta quest", "spatial computing", "shop-floor tech",
-  "enterprise xr", "cognitive learning",
+  "industrial machinery",
+  "medical & pharma labs",
+  "office & it environments",
+  "digital twins",
+  "vr training",
+  "ar visualization",
+  "enterprise xr",
+  "spatial web",
 ];
 
 export default function Hero() {
-  const [gifSrc, setGifSrc]                 = useState("/img/gif/output.gif");
-  const [overlayOn, setOverlayOn]           = useState(true);
+  const [overlayOn, setOverlayOn] = useState(true);
   const [overlayLeaving, setOverlayLeaving] = useState(false);
-  const [layoutVisible, setLayoutVisible]   = useState(false);
-
-  // Active keyword index + GIF fade state
-  const [activeIdx, setActiveIdx]   = useState(0);
-  const [gifVisible, setGifVisible] = useState(true);
-
-  // Change active item + crossfade the GIF
-  const goTo = (idx: number) => {
-    setGifVisible(false);
-    setTimeout(() => {
-      setActiveIdx(idx);
-      setGifSrc(`${ITEMS[idx].gif}?t=${Date.now()}`);
-      setGifVisible(true);
-    }, 300);
-  };
+  const [gifSrc, setGifSrc] = useState("/img/gif/output.gif");
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     setGifSrc(`/img/gif/output.gif?t=${Date.now()}`);
     document.body.style.overflow = "hidden";
 
-    const gifTimer = setTimeout(() => {
+    const progressTimer = window.setInterval(() => {
+      setProgress((current) => Math.min(current + 2, 100));
+    }, GIF_FIRST_LOOP_MS / 50);
+
+    const gifTimer = window.setTimeout(() => {
+      setProgress(100);
       setOverlayLeaving(true);
-      setLayoutVisible(true);
-      const cleanTimer = setTimeout(() => {
+      const cleanTimer = window.setTimeout(() => {
         setOverlayOn(false);
         document.body.style.overflow = "";
       }, TRANSITION_MS);
-      return () => clearTimeout(cleanTimer);
+
+      return () => window.clearTimeout(cleanTimer);
     }, GIF_FIRST_LOOP_MS);
 
     return () => {
-      clearTimeout(gifTimer);
+      window.clearInterval(progressTimer);
+      window.clearTimeout(gifTimer);
       document.body.style.overflow = "";
     };
   }, []);
 
-  // Auto-cycle through items after layout is visible
-  useEffect(() => {
-    if (!layoutVisible) return;
-    const interval = setInterval(() => {
-      setActiveIdx(prev => {
-        const next = (prev + 1) % ITEMS.length;
-        setGifVisible(false);
-        setTimeout(() => {
-          setGifSrc(`${ITEMS[next].gif}?t=${Date.now()}`);
-          setGifVisible(true);
-        }, 300);
-        return next;
-      });
-    }, CYCLE_MS);
-    return () => clearInterval(interval);
-  }, [layoutVisible]);
-
   return (
     <>
-      {/* ── Full-screen intro overlay ─────────────────────────────────────── */}
       {overlayOn && (
         <div
-          className={`hero-intro-overlay${overlayLeaving ? " hero-intro-overlay--leaving" : ""}`}
+          className={`grahas-intro-overlay${overlayLeaving ? " grahas-intro-overlay--leaving" : ""}`}
           aria-hidden="true"
         >
-          {/* Top — logo */}
-          <div className="hero-intro-top">
+          <div className="grahas-intro-top">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/img/grahas-logo.png"
-              alt="GRAHAs VR"
-              className="hero-intro-logo"
-              style={{ height: "5rem", width: "auto", objectFit: "contain" }}
-            />
+            <img src="/img/grahas-logo.png" alt="GRAHAs VR" className="grahas-intro-logo" />
+            <p>Loading immersive experience</p>
           </div>
-
-          {/* Center — GIF with padding + radius */}
-          <div className="hero-intro-gif-wrap">
-            <img
-              src={gifSrc}
-              alt=""
-              className="hero-intro-gif"
-            />
+          <div className="grahas-intro-stage">
+            <div className="grahas-intro-gif-wrap">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={gifSrc} alt="" className="grahas-intro-gif" />
+              <div className="grahas-intro-scanline" />
+            </div>
+            <div className="grahas-intro-panel">
+              <p className="grahas-intro-kicker">Initializing immersive systems</p>
+              <h2>Preparing your XR environment</h2>
+              <div className="grahas-intro-checks">
+                <span>
+                  <i className="ph-bold ph-check" />
+                  Digital twins
+                </span>
+                <span>
+                  <i className="ph-bold ph-check" />
+                  Training simulators
+                </span>
+                <span>
+                  <i className="ph-bold ph-check" />
+                  WebAR modules
+                </span>
+              </div>
+              <div className="grahas-intro-meter">
+                <div className="grahas-intro-meter__label">
+                  <span>System readiness</span>
+                  <strong>{progress}%</strong>
+                </div>
+                <div className="grahas-intro-progress" aria-hidden="true">
+                  <span style={{ transform: `scaleX(${progress / 100})` }} />
+                </div>
+              </div>
+            </div>
           </div>
-
-          {/* Bottom — tagline */}
-          <div className="hero-intro-bottom">
-            <p className="hero-intro-tagline">we are working on it</p>
+          <div className="grahas-intro-bottom">
+            <p>GRAHAs VR</p>
+            <p>Digital twins · VR training · Spatial web</p>
           </div>
         </div>
       )}
 
-      {/* ── Hero layout (fades in after GIF) ─────────────────────────────── */}
-      <div
-        className="mxd-section mxd-hero-section padding-pre-stack"
-        style={{
-          opacity:    layoutVisible ? 1 : 0,
-          transform:  layoutVisible ? "translateY(0)" : "translateY(20px)",
-          transition: `opacity ${TRANSITION_MS}ms cubic-bezier(0.16,1,0.3,1),
-                       transform ${TRANSITION_MS}ms cubic-bezier(0.16,1,0.3,1)`,
-        }}
-      >
+      <div className="mxd-section mxd-hero-section padding-pre-stack">
+        <video
+          className="grahas-hero-bg-video"
+          preload="auto"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={HERO_VIDEO_POSTER}
+        >
+          <source type="video/mp4" src={HERO_VIDEO_MP4} />
+          <source type="video/webm" src={HERO_VIDEO_WEBM} />
+        </video>
+        <div className="grahas-hero-bg-shade" />
         <div className="mxd-hero-04">
           <div className="mxd-hero-04__wrap overflow-hidden loading-wrap">
             <div className="container-fluid p-0">
-              <div className="row g-0 flex-column flex-xl-row hero-main-row">
-
-                {/* ── Left column — GIF (col-9) ────────────────────────── */}
-                <div className="col-12 col-xl-9 order-1 mxd-hero-04__left mxd-grid-item no-margin hero-left-col">
-                  <div className="hero-layout-gif-wrap">
-                    <img
-                      src={gifSrc}
-                      alt="GRAHAs VR — Engineering-Grade XR"
-                      className="hero-layout-gif"
-                      style={{ opacity: gifVisible ? 1 : 0, transition: "opacity 0.3s ease" }}
-                    />
-                  </div>
-                </div>
-
-                {/* ── Right column — text (col-3) ───────────────────────── */}
-                <div className="col-12 col-xl-3 order-2 mxd-hero-04__right mxd-grid-item no-margin hero-right-col">
-                  <div className="hero-right-inner">
-
-                    {/* Tagline */}
-                    <p className="hero-right-tagline loading__item">
-                      High-fidelity XR solutions that solve{" "}
-                      <a href="#solutions">real enterprise problems</a>
+              <div className="row g-0 flex-column flex-xl-row">
+                <div className="col-12 mxd-hero-04__right mxd-grid-item no-margin grahas-hero-main">
+                  <div className="mxd-hero-04__headline">
+                    <p className="t-small t-muted loading__item grahas-hero-kicker">
+                      Engineering-grade immersive technology
                     </p>
-
-                    {/* Title — sized to fit the narrow col */}
-                    <h1 className="hero-right-title loading__item">
-                      Trans&shy;forming<br />Industries.
+                    <h1 className="hero-04-title grahas-hero-title loading__item">
+                      Transforming Industries &amp; Enterprises with Immersive Tech.
                     </h1>
+                  </div>
 
-                    {/* Keyword list */}
-                    <ul className="hero-right-list loading__item">
-                      {ITEMS.map((item, idx) => (
-                        <li
-                          key={item.label}
-                          className={`hero-right-list-item${idx === activeIdx ? " active" : ""}`}
-                          onClick={() => goTo(idx)}
-                        >
-                          <span className="hero-right-list-dot" />
-                          {item.label}
-                        </li>
-                      ))}
-                    </ul>
-
+                  <div className="mxd-hero-04__descr">
+                    <div className="container-fluid p-0">
+                      <div className="row g-0 align-items-end">
+                        <div className="col-12 col-xl-7 loading__item">
+                          <p className="t-large">
+                            We build engineering-grade XR solutions that solve
+                            real business problems. Trusted by TVS Group, IIT
+                            Mandi, and 120+ Enterprise Users.
+                          </p>
+                        </div>
+                        <div className="col-12 col-xl-5 loading__item">
+                          <div className="grahas-hero-actions">
+                            <AnimatedButton
+                              text="Explore Custom Solutions"
+                              className="btn btn-anim btn-default btn-accent slide-right-up"
+                              href="/solutions"
+                            >
+                              <i className="ph-bold ph-arrow-up-right" />
+                            </AnimatedButton>
+                            <AnimatedButton
+                              text="View Our Products"
+                              className="btn btn-anim btn-default btn-outline slide-right-up"
+                              href="/platforms"
+                            >
+                              <i className="ph-bold ph-arrow-down" />
+                            </AnimatedButton>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* ── Bottom marquee ────────────────────────────────────── */}
                 <div className="col-12 order-3 mxd-hero-04__marquee mxd-grid-item">
                   <div className="hero-04-marquee">
                     <VelocityMarquee className="marquee marquee-right--gsap">
-                      {marqueeItems.map((item, idx) => (
-                        <div key={idx} className="marquee__item item-regular text">
+                      {marqueeItems.map((item) => (
+                        <div key={item} className="marquee__item item-regular text">
                           <p>{item}</p>
                           <StarSvg />
                         </div>
@@ -199,209 +187,286 @@ export default function Hero() {
                     </VelocityMarquee>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <style>{`
-        /* ── Full-screen intro overlay ──────────────────────────────────── */
-        .hero-intro-overlay {
+        <style>{`
+        .grahas-intro-overlay {
           position: fixed;
           inset: 0;
-          z-index: 999;
-          background: var(--color-base, #f5f0eb);
+          z-index: 9999;
+          background: var(--base);
           display: flex;
           flex-direction: column;
-          padding: 1.25rem;
           gap: 1rem;
+          padding: 1.5rem;
+          clip-path: inset(0 0 0 0 round 0);
           opacity: 1;
-          clip-path: inset(0 0% 0 0 round 0px);
           transition:
-            clip-path ${TRANSITION_MS}ms cubic-bezier(0.76, 0, 0.24, 1),
-            opacity   ${TRANSITION_MS}ms ease;
+            clip-path ${TRANSITION_MS}ms var(--_animbezier),
+            opacity ${TRANSITION_MS}ms ease;
         }
-        .hero-intro-overlay--leaving {
-          clip-path: inset(0 100% 0 0 round 0px);
-          opacity: 0;
-        }
-
-        /* Top bar */
-        .hero-intro-top {
-          flex-shrink: 0;
-          display: flex;
-          align-items: flex-start;
-        }
-        .hero-intro-logo {
-          font-size: clamp(1.1rem, 2vw, 1.4rem);
-          font-weight: 700;
-          line-height: 1.1;
-          letter-spacing: -0.02em;
-          text-transform: uppercase;
-          color: var(--color-base-content, #111);
-        }
-
-        /* GIF — fills remaining space, rounded */
-        .hero-intro-gif-wrap {
-          flex: 1;
-          min-height: 0;
+        .mxd-hero-section {
+          position: relative;
           overflow: hidden;
-          border-radius: var(--radius-l, 24px);
+          background: var(--base);
         }
-        .hero-intro-gif {
+        .grahas-hero-bg-video,
+        .grahas-hero-bg-shade {
+          position: absolute;
+          inset: 0;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          display: block;
         }
-
-        /* Bottom bar */
-        .hero-intro-bottom {
+        .grahas-hero-bg-video {
+          object-fit: cover;
+          opacity: 1;
+          filter: saturate(1.08) contrast(1.08);
+        }
+        .grahas-hero-bg-shade {
+          background:
+            linear-gradient(90deg, rgba(var(--base-rgb), 0.92) 0%, rgba(var(--base-rgb), 0.66) 42%, rgba(var(--base-rgb), 0.18) 100%),
+            linear-gradient(0deg, rgba(var(--base-rgb), 0.88), rgba(var(--base-rgb), 0.08));
+        }
+        .mxd-hero-04 {
+          position: relative;
+          z-index: 1;
+        }
+        .grahas-intro-overlay--leaving {
+          clip-path: inset(0 100% 0 0 round 0);
+          opacity: 0;
+        }
+        .grahas-intro-top,
+        .grahas-intro-bottom {
           flex-shrink: 0;
           display: flex;
           align-items: center;
-          justify-content: flex-end;
         }
-        .hero-intro-tagline {
-          font-size: clamp(0.75rem, 1.2vw, 0.9rem);
-          opacity: 0.5;
+        .grahas-intro-top {
+          justify-content: space-between;
+          gap: 2rem;
+        }
+        .grahas-intro-top {
+          min-height: 6rem;
+        }
+        .grahas-intro-bottom {
+          justify-content: space-between;
+          gap: 2rem;
+          min-height: 3rem;
+        }
+        .grahas-intro-logo {
+          height: clamp(4rem, 7vw, 7rem);
+          width: auto;
+          object-fit: contain;
+        }
+        .grahas-intro-top p,
+        .grahas-intro-bottom p,
+        .grahas-intro-kicker {
           margin: 0;
-          letter-spacing: 0.04em;
+          color: var(--t-muted);
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
         }
-
-        /* ── Hero row fills full viewport height ────────────────────────── */
-        .hero-main-row {
-          min-height: 100vh;
-        }
-        @media (min-width: 1200px) {
-          .hero-main-row {
-            align-items: stretch !important;
-          }
-          .hero-left-col,
-          .hero-right-col {
-            display: flex;
-            flex-direction: column;
-          }
-        }
-
-        /* ── Layout GIF — fills full column height ───────────────────────── */
-        .hero-layout-gif-wrap {
-          width: 100%;
+        .grahas-intro-stage {
           flex: 1;
           min-height: 0;
-          overflow: hidden;
-          border-radius: var(--radius-m, 16px);
-          /* fallback height for browsers that don't stretch */
-          height: 100%;
+          display: grid;
+          grid-template-columns: minmax(0, 1.15fr) minmax(34rem, 0.85fr);
+          gap: 1rem;
         }
-        .hero-layout-gif {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-
-        /* ── Right column — fills full height, spaced vertically ─────────── */
-        .hero-right-inner {
+        .grahas-intro-panel {
+          border-radius: var(--_radius-m);
+          background: var(--base-tint);
+          padding: clamp(2.4rem, 4vw, 4.5rem);
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          overflow: hidden;
+        }
+        .grahas-intro-panel h2 {
+          max-width: 10ch;
+          margin: 0;
+          color: var(--t-bright);
+          font-size: clamp(4.2rem, 6vw, 8.8rem);
+          line-height: 0.94;
+        }
+        .grahas-intro-gif-wrap {
+          position: relative;
+          min-height: 0;
+          overflow: hidden;
+          border-radius: var(--_radius-m);
+          background:
+            linear-gradient(rgba(var(--accent-rgb), 0.16), rgba(var(--accent-rgb), 0.04)),
+            var(--base-tint);
+          border: 1px solid rgba(var(--accent-rgb), 0.28);
+          padding: 0.8rem;
+        }
+        .grahas-intro-gif-wrap::after {
+          content: "";
+          position: absolute;
+          inset: 0.8rem;
+          border-radius: calc(var(--_radius-m) - 0.8rem);
+          background:
+            linear-gradient(90deg, rgba(0,0,0,0.3), transparent 32%, rgba(var(--accent-rgb),0.16)),
+            repeating-linear-gradient(0deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 7px);
+          pointer-events: none;
+        }
+        .grahas-intro-gif {
+          width: 100%;
           height: 100%;
-          padding: 1.75rem 1.25rem;
-          gap: 0;
+          object-fit: cover;
+          display: block;
+          border-radius: calc(var(--_radius-m) - 0.8rem);
         }
-        .hero-right-tagline {
-          font-size: clamp(0.8rem, 1.1vw, 1.1rem);
-          line-height: 1.5;
-          opacity: 0.6;
-          margin: 0;
+        .grahas-intro-scanline {
+          position: absolute;
+          z-index: 2;
+          left: 0.8rem;
+          right: 0.8rem;
+          top: 0.8rem;
+          height: 18%;
+          border-radius: calc(var(--_radius-m) - 0.8rem);
+          background: linear-gradient(180deg, rgba(var(--accent-rgb),0), rgba(var(--accent-rgb),0.34), rgba(var(--accent-rgb),0));
+          animation: grahasIntroScan 1800ms ease-in-out infinite;
+          pointer-events: none;
         }
-        .hero-right-tagline a {
-          text-decoration: underline;
-          opacity: 0.9;
-        }
-        /* col-3 = 25vw — "Transforming" fills it at ~3.2vw */
-        .hero-right-title {
-          font-size: clamp(1.8rem, 3.2vw, 4.5rem);
-          font-weight: 700;
-          line-height: 1.08;
-          letter-spacing: -0.03em;
-          margin: 0;
-          word-break: break-word;
-        }
-        .hero-right-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
+        .grahas-intro-checks {
           display: flex;
           flex-direction: column;
-          gap: clamp(0.3rem, 0.5vh, 0.6rem);
+          gap: 1rem;
+          margin: 3rem 0;
         }
-        .hero-right-list-item {
-          font-size: clamp(1rem, 1.4vw, 1.5rem);
-          opacity: 0.35;
-          letter-spacing: 0.02em;
-          cursor: pointer;
+        .grahas-intro-checks span {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          transition: opacity 0.25s ease;
-          user-select: none;
+          gap: 0.8rem;
+          color: var(--t-bright);
+          font-size: 1.7rem;
         }
-        .hero-right-list-item:hover {
-          opacity: 0.7;
-        }
-        .hero-right-list-item.active {
-          opacity: 1;
-          font-weight: 600;
-        }
-        /* Indicator dot */
-        .hero-right-list-dot {
-          width: 5px;
-          height: 5px;
+        .grahas-intro-checks i {
+          display: grid;
+          place-items: center;
+          width: 2.6rem;
+          height: 2.6rem;
           border-radius: 50%;
-          background: currentColor;
-          flex-shrink: 0;
-          opacity: 0;
-          transform: scale(0);
-          transition: opacity 0.25s ease, transform 0.25s ease;
+          color: var(--t-opp-bright);
+          background: var(--accent);
+          font-size: 1.3rem;
         }
-        .hero-right-list-item.active .hero-right-list-dot {
-          opacity: 1;
-          transform: scale(1);
+        .grahas-intro-meter {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
         }
-
-        /* Mobile: natural flow */
-        @media (max-width: 1199px) {
-          .hero-main-row { min-height: unset; }
-          .hero-layout-gif-wrap {
-            height: auto;
-            aspect-ratio: 4 / 3;
-          }
-          .hero-right-inner {
-            padding: 1.5rem 0;
-            height: auto;
-            gap: 1.25rem;
-          }
-          .hero-right-title {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-          }
-          .hero-right-list {
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.25rem;
-          }
-          .hero-right-list-item { font-size: clamp(1.1rem, 4vw, 1.4rem); }
+        .grahas-intro-meter__label {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          gap: 1rem;
+          color: var(--t-muted);
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
         }
-
-        /* ── Reduced motion ──────────────────────────────────────────────── */
-        @media (prefers-reduced-motion: reduce) {
-          .hero-intro-overlay,
-          .hero-intro-overlay--leaving {
-            transition: none;
-            clip-path: none;
+        .grahas-intro-meter__label strong {
+          color: var(--t-bright);
+          font: normal var(--fw-medium) 2.2rem/1 var(--_font-accent);
+          letter-spacing: 0;
+        }
+        .grahas-intro-progress {
+          position: relative;
+          width: 100%;
+          height: 0.8rem;
+          overflow: hidden;
+          border-radius: 999px;
+          background: var(--stroke-elements);
+        }
+        .grahas-intro-progress span {
+          position: absolute;
+          inset: 0 auto 0 0;
+          width: 100%;
+          background: var(--accent);
+          transform-origin: left center;
+          transition: transform 120ms linear;
+        }
+        @keyframes grahasIntroScan {
+          0% { transform: translateY(-25%); opacity: 0; }
+          18% { opacity: 1; }
+          100% { transform: translateY(520%); opacity: 0; }
+        }
+        @media only screen and (max-width: 767px) {
+          .grahas-intro-overlay {
+            padding: 1rem;
+            gap: 1rem;
+          }
+          .grahas-intro-top,
+          .grahas-intro-bottom {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 1rem;
+          }
+          .grahas-intro-stage {
+            grid-template-columns: 1fr;
+          }
+          .grahas-intro-panel {
+            min-height: 28rem;
+            order: 2;
+          }
+          .grahas-intro-gif-wrap {
+            min-height: 28rem;
+          }
+          .grahas-intro-panel h2 {
+            font-size: clamp(3.6rem, 14vw, 5.6rem);
+          }
+          .grahas-intro-progress {
+            width: 100%;
+            flex: none;
+          }
+        }
+        .grahas-hero-kicker {
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          margin: 0;
+        }
+        .grahas-hero-title {
+          display: block;
+          max-width: 15ch;
+          margin: 0;
+          font-size: clamp(4.6rem, 6.2vw, 9.2rem);
+          line-height: 0.96;
+        }
+        .grahas-hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          gap: 1rem;
+          margin-top: 1.4rem;
+        }
+        @media only screen and (min-width: 1200px) {
+          .grahas-hero-main .mxd-hero-04__headline,
+          .grahas-hero-main .mxd-hero-04__descr {
+            padding-left: 0;
+            padding-right: 0;
+          }
+          .mxd-hero-04__right {
+            gap: 2.4rem;
+          }
+          .mxd-hero-04__headline {
+            gap: 1.6rem;
+          }
+          .grahas-hero-actions {
+            justify-content: flex-end;
+            margin-top: 0;
+          }
+        }
+        @media only screen and (max-width: 1199px) {
+          .grahas-hero-title {
+            font-size: clamp(4rem, 11vw, 7.2rem);
+            max-width: 12ch;
           }
         }
       `}</style>
