@@ -24,7 +24,6 @@ const team = [
     name: "Passionate XR Team",
     role: "Developers & 3D Artists",
     bio: "Passionate team of developers with a collective experience of over 20+ years in the XR Domain.",
-    image: "/img/gif/output.gif",
   },
 ];
 
@@ -65,14 +64,20 @@ export default function Team() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                     {/* Square Photo */}
                     <div style={{ width: "100%", position: "relative", paddingBottom: "100%", overflow: "hidden", borderRadius: "var(--radius-m, 16px)" }}>
-                      <Image
-                        alt={member.name}
-                        src={member.image}
-                        fill
-                        priority
-                        sizes="(max-width: 576px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        style={{ objectFit: "cover", objectPosition: "center top", transition: "none" }}
-                      />
+                      {member.image ? (
+                        <Image
+                          alt={member.name}
+                          src={member.image}
+                          fill
+                          priority
+                          sizes="(max-width: 576px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          style={{ objectFit: "cover", objectPosition: "center top", transition: "none" }}
+                        />
+                      ) : (
+                        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "1.5rem", textAlign: "center" }}>
+                          <span style={{ fontSize: "6rem", alignContent: "left", fontWeight: 700, lineHeight: 1.2 }}>{member.name}</span>
+                        </div>
+                      )}
                     </div>
                     {/* Info */}
                     <div style={{ paddingLeft: "0.25rem" }}>
