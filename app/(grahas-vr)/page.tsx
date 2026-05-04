@@ -28,8 +28,8 @@ export default function GrahasVRPage() {
       <SocialProof />
       <WhatWeBuild />
       <Projects />
-      <CaseStudy />
       <Platforms />
+      <CaseStudy />
       <StepFramework />
       <Partners />
       <Industries />

@@ -47,7 +47,7 @@ export default function Platforms() {
                   <img
                     className="service-img service-img-m"
                     alt="Zeal X Platform"
-                    src="/video/540x310_video-01.webp"
+                    src="/img/gen/Zeal_X.jpg"
                     style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />
                 </div>
@@ -84,7 +84,7 @@ export default function Platforms() {
                   <img
                     className="service-img service-img-m"
                     alt="Spaces Platform"
-                    src="/img/gif/output.gif"
+                    src="/img/gen/Spaces_Cover.jpg"
                     style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />
                 </div>
@@ -122,8 +122,8 @@ export default function Platforms() {
                   <img
                     className="service-img service-img-m"
                     alt="Canvas Platform"
-                    src="/img/gif/output.gif"
-                    style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)", filter: "blur(3px)" }}
+                    src="/img/gen/Canvas_Coming_Soon.png"
+                    style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />
                 </div>
               </div>

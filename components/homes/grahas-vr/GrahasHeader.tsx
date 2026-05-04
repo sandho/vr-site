@@ -163,7 +163,7 @@ export default function GrahasHeader() {
                   src="/img/grahas-logo.png"
                   alt="GRAHAs VR"
                   className="fade-in-elm"
-                  style={{ height: "2rem", width: "auto", objectFit: "contain", marginBottom: "1.5rem" }}
+                  style={{ height: "4rem", width: "auto", objectFit: "contain", marginBottom: "1.5rem" }}
                 />
                 <p className="mxd-menu__caption fade-in-elm">
                   Engineering-Grade XR
@@ -252,7 +252,7 @@ export default function GrahasHeader() {
             <img
               src="/img/grahas-logo.png"
               alt="GRAHAs VR"
-              style={{ height: "3.5rem", width: "auto", objectFit: "contain" }}
+              style={{ height: "5rem", width: "auto", objectFit: "contain" }}
             />
           </Link>
         </div>

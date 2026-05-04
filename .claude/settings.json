@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -L \"https://blog.stockedge.com/wp-content/uploads/2020/11/tvs-1.png\" -o /Users/san/Documents/vr-site/public/img/social/tvs-group-logo.png)",
+      "Bash(curl -L \"https://www.veltech.edu.in/wp-content/uploads/2025/06/tbi.png\" -o /Users/san/Documents/vr-site/public/img/social/veltech-tbi-logo.png)"
+    ]
+  }
+}

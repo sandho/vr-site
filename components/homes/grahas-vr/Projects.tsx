@@ -4,32 +4,32 @@ const demos = [
   {
     title: "IoT / Security",
     subtitle: "PCMS ProSec Guard Demo (Kritilabs)",
-    href: "https://youtu.be/kKfEU5fNv68",
-    thumb: "https://img.youtube.com/vi/kKfEU5fNv68/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=4lI0TQADhqI",
+    thumb: "https://img.youtube.com/vi/4lI0TQADhqI/hqdefault.jpg",
   },
   {
     title: "Automotive",
     subtitle: "AR Engine Assembly Training",
-    href: "https://youtu.be/yX3I7oz-7ME",
-    thumb: "https://img.youtube.com/vi/yX3I7oz-7ME/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=buGl51RHeCs",
+    thumb: "https://img.youtube.com/vi/buGl51RHeCs/hqdefault.jpg",
   },
   {
     title: "Enterprise Safety",
     subtitle: "Zeal X VR Simulation",
-    href: "https://youtu.be/4lI0TQADhqI",
-    thumb: "https://img.youtube.com/vi/4lI0TQADhqI/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=kKfEU5fNv68",
+    thumb: "https://img.youtube.com/vi/kKfEU5fNv68/hqdefault.jpg",
   },
   {
     title: "AEC",
     subtitle: "Architecture & Construction Walkthrough",
-    href: "https://youtu.be/buGl51RHeCs",
-    thumb: "https://img.youtube.com/vi/buGl51RHeCs/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=yX3I7oz-7ME",
+    thumb: "https://img.youtube.com/vi/yX3I7oz-7ME/hqdefault.jpg",
   },
   {
     title: "Aviation",
-    subtitle: "Flight/Maintenance Simulation",
-    href: "https://squarecompin-my.sharepoint.com/:v:/g/personal/srinivasan_squarecomp_in/IQDFg63h37rIRbiReD44ANhuAchOe-tknfNeAAl63l_dzeE?e=qdVKvm",
-    thumb: "/img/works/preview/1920x1080_prv-07.webp",
+    subtitle: "AR / VR Training for Pharmaceutical Industries",
+    href: "https://youtu.be/HLuuOVJW5xA",
+    thumb: "https://img.youtube.com/vi/HLuuOVJW5xA/hqdefault.jpg",
   },
 ];
 

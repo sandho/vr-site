@@ -50,14 +50,7 @@ export default function WhatWeBuild() {
               <div className="col-12 col-xl-7 mxd-grid-item no-margin">
                 <div className="digital-twin-split anim-uni-in-up">
                   <div className="digital-twin-panel">
-                    <span>Real Machine</span>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/img/works/preview/1920x1080_prv-04.webp" alt="Real industrial machine reference" />
-                  </div>
-                  <div className="digital-twin-panel">
-                    <span>Digital Twin</span>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/img/gif/output.gif" alt="Digital twin simulation preview" />
+                    <img src="/img/works/custom-built-xr-vr-ar-mr.png" alt="Real industrial machine reference" />
                   </div>
                 </div>
               </div>
@@ -86,44 +79,30 @@ export default function WhatWeBuild() {
           margin-top: 0.2rem;
         }
         .digital-twin-split {
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 0.75rem;
-          min-height: clamp(28rem, 42vw, 54rem);
+          position: relative;
+          height: 100%;
+          min-height: clamp(32rem, 50vw, 64rem);
         }
         .digital-twin-panel {
-          position: relative;
+          position: absolute;
+          inset: 0;
           overflow: hidden;
-          border-radius: 0.5rem;
-          background: #111;
+          border-radius: var(--_radius-m);
         }
         .digital-twin-panel img {
-          width: 100%;
+          width: auto;
           height: 100%;
-          object-fit: cover;
+          max-width: 100%;
+          object-fit: contain;
           display: block;
+          margin: 0 auto;
           opacity: 0.9;
         }
-        .digital-twin-panel span {
-          position: absolute;
-          z-index: 2;
-          top: 1rem;
-          left: 1rem;
-          padding: 0.45rem 0.7rem;
-          border-radius: 999px;
-          color: #fff;
-          background: rgba(0,0,0,0.56);
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          letter-spacing: 0.06em;
-        }
-        @media (max-width: 767px) {
+        @media (max-width: 1199px) {
           .digital-twin-split {
-            grid-template-columns: 1fr;
+            position: relative;
             min-height: auto;
-          }
-          .digital-twin-panel {
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 16 / 9;
           }
         }
       `}</style>

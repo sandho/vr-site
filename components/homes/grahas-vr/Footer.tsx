@@ -107,7 +107,14 @@ export default function Footer() {
             <div className="footer-blocks__title anim-uni-in-up">
               <p className="footer-blocks__title-m">Live Platform</p>
             </div>
-            <div className="anim-uni-in-up">
+            <div className="anim-uni-in-up" style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+              <AnimatedButton
+                text="grahasvr.space ↗"
+                className="btn btn-anim btn-default btn-outline slide-right-up"
+                href="https://grahasvr.space/"
+              >
+                <i className="ph-bold ph-arrow-up-right" />
+              </AnimatedButton>
               <AnimatedButton
                 text="zealx.in ↗"
                 className="btn btn-anim btn-default btn-outline slide-right-up"

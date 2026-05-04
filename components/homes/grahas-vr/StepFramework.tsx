@@ -1,7 +1,6 @@
+import Image from "next/image";
 import RevealText from "@/components/animation/RevealText";
 import AnimatedButton from "@/components/animation/AnimatedButton";
-
-const steps = ["Story", "Emotion", "Place"];
 
 export default function StepFramework() {
   return (
@@ -36,14 +35,14 @@ export default function StepFramework() {
                 </div>
               </div>
               <div className="col-12 col-xl-6 mxd-grid-item no-margin">
-                <div className="step-diagram anim-uni-in-up" aria-label="STEP Framework diagram">
-                  {steps.map((step, index) => (
-                    <div className="step-node" key={step}>
-                      <span>{step.charAt(0)}</span>
-                      <p>{step}</p>
-                      {index < steps.length - 1 && <i className="ph-bold ph-arrow-right" />}
-                    </div>
-                  ))}
+                <div className="step-diagram anim-uni-in-up">
+                  <Image
+                    src="/img/gen/STEP_Framework.png"
+                    alt="STEP Framework diagram"
+                    width={800}
+                    height={600}
+                    className="step-diagram__img"
+                  />
                 </div>
               </div>
             </div>
@@ -53,54 +52,14 @@ export default function StepFramework() {
 
       <style>{`
         .step-diagram {
-          min-height: clamp(28rem, 38vw, 48rem);
-          border-radius: 0.5rem;
-          background:
-            radial-gradient(circle at 20% 28%, rgba(5,132,199,0.22), transparent 28%),
-            radial-gradient(circle at 78% 66%, rgba(20,20,20,0.12), transparent 30%),
-            var(--color-base-tint, #f6f3ef);
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          display: flex;
           align-items: center;
-          gap: 1rem;
-          padding: 2rem;
+          justify-content: center;
         }
-        .step-node {
-          position: relative;
-          display: grid;
-          place-items: center;
-          gap: 1rem;
-          text-align: center;
-        }
-        .step-node span {
-          width: clamp(7rem, 10vw, 12rem);
-          height: clamp(7rem, 10vw, 12rem);
-          display: grid;
-          place-items: center;
-          border-radius: 50%;
-          background: var(--accent--light, #0584c7);
-          color: #fff;
-          font-size: clamp(3rem, 5vw, 6rem);
-          font-weight: 700;
-        }
-        .step-node p {
-          margin: 0;
-          font-weight: 650;
-        }
-        .step-node i {
-          position: absolute;
-          right: -1.35rem;
-          top: 42%;
-          font-size: 1.6rem;
-          opacity: 0.45;
-        }
-        @media (max-width: 767px) {
-          .step-diagram {
-            grid-template-columns: 1fr;
-          }
-          .step-node i {
-            display: none;
-          }
+        .step-diagram__img {
+          width: 100%;
+          height: auto;
+          display: block;
         }
       `}</style>
     </section>

@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 const logos = [
-  { name: "TVS Group" },
-  { name: "IIT Mandi Catalyst" },
-  { name: "Vel Tech TBI" },
+  { name: "TVS Group", src: "/img/social/tvs-group-logo.png" },
+  { name: "IIT Mandi Catalyst & IIT Mandi iHub & HCi Foundation", src: "/img/social/iit-madras-indian-institute-of-technology-madras4653.jpg" },
+  { name: "Vel Tech TBI", src: "/img/social/veltech-tbi-logo.png" },
   { name: "NASSCOM Emerge 50", src: "/img/social/emerge50-logo.jpg" },
   { name: "Startup Grind", src: "/img/social/Startupgrind.png" },
   { name: "Google for Startups", src: "/img/social/GCP.jpg" },

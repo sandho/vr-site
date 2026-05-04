@@ -56,8 +56,12 @@ export default function CaseStudy() {
                 <div className="anim-uni-in-up" style={{ width: "100%", flex: 1 }}>
                   <div className="mxd-testimonials-card bg-base-tint radius-m" style={{ width: "100%", maxWidth: "100%", height: "100%", margin: 0 }}>
                     <div className="case-study-media">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/img/gif/output.gif" alt="TVS workers using VR headset in a training room" />
+                      <iframe
+                        src="https://www.youtube.com/embed/BkGDpENtHZ8"
+                        title="TVS Group VR Training Case Study"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
                     <div className="mxd-testimonials-card__content">
                       <div className="mxd-testimonials-card__media anim-uni-in-up">
@@ -96,14 +100,13 @@ export default function CaseStudy() {
         .case-study-media {
           aspect-ratio: 16 / 9;
           overflow: hidden;
-          border-radius: var(--radius-m, 0.5rem);
+          border-radius: var(--_radius-m);
           margin-bottom: 2rem;
-          background: #111;
         }
-        .case-study-media img {
+        .case-study-media iframe {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          border: none;
           display: block;
         }
         .case-study-stat {
