@@ -60,11 +60,10 @@ export default function Team() {
           <div className="container-fluid p-0">
             <div className="row g-4">
               {team.map((member, idx) => (
-                <div key={idx} className="col-12 col-sm-6 col-xl-3">
+                <div key={idx} className="col-12 col-sm-6 col-xl-4">
                   <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                    {/* Square Photo */}
-                    <div style={{ width: "100%", position: "relative", paddingBottom: "100%", overflow: "hidden", borderRadius: "var(--radius-m, 16px)" }}>
-                      {member.image ? (
+                    {member.image && (
+                      <div style={{ width: "100%", position: "relative", paddingBottom: "100%", overflow: "hidden", borderRadius: "var(--radius-m, 16px)" }}>
                         <Image
                           alt={member.name}
                           src={member.image}
@@ -73,15 +72,9 @@ export default function Team() {
                           sizes="(max-width: 576px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           style={{ objectFit: "cover", objectPosition: "center top", transition: "none" }}
                         />
-                      ) : (
-                        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "1.5rem", textAlign: "center" }}>
-                          <span style={{ fontSize: "6rem", alignContent: "left", fontWeight: 700, lineHeight: 1.2 }}>{member.name}</span>
-                        </div>
-                      )}
-                    </div>
-                    {/* Info */}
+                      </div>
+                    )}
                     <div style={{ paddingLeft: "0.25rem" }}>
-                      {/* <p className="t-small" style={{ margin: 0, opacity: 0.5 }}>{member.number}</p> */}
                       <h5 style={{ margin: "0.25rem 0 0.25rem" }}>{member.name}</h5>
                       <p className="t-small" style={{ margin: 0, opacity: 0.6 }}>{member.role}</p>
                       <p className="t-small" style={{ margin: "0.8rem 0 0", opacity: 0.72 }}>{member.bio}</p>
