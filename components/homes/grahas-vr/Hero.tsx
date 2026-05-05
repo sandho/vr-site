@@ -74,6 +74,23 @@ export default function Hero() {
 
       <div className="mxd-section mxd-hero-section padding-pre-stack">
         <div className="grahas-hero-split">
+          <div className="grahas-hero-split__video">
+            <div className="grahas-hero-video-player">
+              <video
+                className="grahas-hero-video"
+                preload="auto"
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster={HERO_VIDEO_POSTER}
+              >
+                <source type="video/mp4" src={HERO_VIDEO_MP4} />
+                <source type="video/webm" src={HERO_VIDEO_WEBM} />
+              </video>
+            </div>
+          </div>
+
           <div className="grahas-hero-split__text loading-wrap">
             <p className="t-small t-muted loading__item grahas-hero-kicker">
               Engineering-grade immersive technology
@@ -100,23 +117,6 @@ export default function Hero() {
               >
                 <i className="ph-bold ph-arrow-down" />
               </AnimatedButton>
-            </div>
-          </div>
-
-          <div className="grahas-hero-split__video">
-            <div className="grahas-hero-video-player">
-              <video
-                className="grahas-hero-video"
-                preload="auto"
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster={HERO_VIDEO_POSTER}
-              >
-                <source type="video/mp4" src={HERO_VIDEO_MP4} />
-                <source type="video/webm" src={HERO_VIDEO_WEBM} />
-              </video>
             </div>
           </div>
         </div>
@@ -158,25 +158,26 @@ export default function Hero() {
         }
         .grahas-hero-split {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          min-height: 88vh;
+          grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+          min-height: 82vh;
         }
         .grahas-hero-split__text {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          gap: 2.4rem;
-          padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 6rem) clamp(4rem, 8vw, 8rem) clamp(2rem, 6vw, 8rem);
+          gap: 1.8rem;
+          padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 6rem) clamp(3rem, 6vw, 6rem) clamp(2rem, 4vw, 4.8rem);
         }
         .grahas-hero-split__video {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: clamp(2rem, 4vw, 5rem);
-          background: var(--base-tint);
+          padding: clamp(1.4rem, 2.6vw, 3.6rem);
+          background: transparent;
         }
         .grahas-hero-video-player {
           width: 100%;
+          min-height: clamp(36rem, 56vh, 68rem);
           aspect-ratio: 16 / 9;
           border-radius: var(--_radius-m);
           overflow: hidden;
@@ -197,8 +198,15 @@ export default function Hero() {
             grid-template-columns: 1fr;
             min-height: auto;
           }
+          .grahas-hero-split__text {
+            padding: clamp(2.8rem, 8vw, 4.8rem) clamp(1.6rem, 5vw, 3rem) clamp(3.2rem, 8vw, 5rem);
+          }
           .grahas-hero-split__video {
             padding: clamp(1.6rem, 4vw, 3rem);
+          }
+          .grahas-hero-video-player {
+            min-height: auto;
+            aspect-ratio: 16 / 10;
           }
         }
         .grahas-intro-overlay--leaving {
@@ -233,17 +241,29 @@ export default function Hero() {
         }
         .grahas-hero-title {
           display: block;
-          max-width: 15ch;
+          max-width: 14ch;
           margin: 0;
-          font-size: clamp(4.6rem, 6.2vw, 9.2rem);
-          line-height: 0.96;
+          font-size: clamp(3.8rem, 4.8vw, 7.2rem);
+          line-height: 1;
         }
         .grahas-hero-actions {
           display: flex;
           flex-wrap: wrap;
           justify-content: flex-start;
           gap: 1rem;
-          margin-top: 1.4rem;
+          margin-top: 0.8rem;
+        }
+        @media only screen and (max-width: 575px) {
+          .grahas-hero-title {
+            max-width: 12ch;
+            font-size: clamp(3.4rem, 12vw, 4.8rem);
+          }
+          .grahas-hero-actions {
+            width: 100%;
+          }
+          .grahas-hero-actions .btn {
+            width: 100%;
+          }
         }
       `}</style>
     </>

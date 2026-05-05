@@ -8,7 +8,7 @@ const logos = [
   { name: "Startup Grind", src: "/img/social/Startupgrind.png" },
   { name: "Google for Startups", src: "/img/social/GCP.jpg" },
   { name: "CII", src: "/img/social/Official_logo_of_the_Confederation_of_Indian_Industry_(CII).svg.png" },
-  { name: "Available on Meta Store", src: "/img/social/meta-quest-seeklogo.png", href: "https://www.meta.com/experiences/" },
+  { name: "Available on Meta Store", src: "/img/social/meta-quest-seeklogo.png", href: "https://www.meta.com/en-gb/experiences/zeal-x-enterprise-training/26072684335657935/" },
 ];
 
 export default function SocialProof() {
@@ -86,17 +86,24 @@ export default function SocialProof() {
       </div>
 
       <style>{`
+        .mxd-partners-cards__item {
+          height: clamp(14rem, 18vw, 20rem);
+        }
+        .mxd-partners-cards__inner {
+          padding: clamp(1.2rem, 2vw, 2.4rem);
+        }
         .grahas-partner-logo {
-          width: min(18rem, 72%);
-          min-height: 6rem;
+          width: min(24rem, 92%);
+          min-height: clamp(7rem, 10vw, 12rem);
           display: grid;
           place-items: center;
         }
         .grahas-partner-logo img {
           width: 100%;
           height: auto;
-          max-height: 8rem;
+          max-height: clamp(8rem, 11vw, 13rem);
           object-fit: contain;
+          opacity: 0.82;
         }
         .grahas-partner-logo span {
           display: block;

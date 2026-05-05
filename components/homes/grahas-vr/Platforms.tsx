@@ -18,14 +18,14 @@ export default function Platforms() {
               {/* Zeal X — Live */}
               <div className="mxd-services-stack__inner justify-between bg-base-opp">
                 <div className="mxd-services-stack__controls">
-                  <AnimatedButton text="Get on Meta Store" className="btn btn-anim btn-default btn-outline-opposite slide-right-up" href="https://www.meta.com/experiences/">
+                  <AnimatedButton text="Get on Meta Store" className="btn btn-anim btn-default btn-outline slide-right-up platform-cta platform-cta--light" href="https://www.meta.com/en-gb/experiences/zeal-x-enterprise-training/26072684335657935/">
                     <i className="ph-bold ph-arrow-up-right" />
                   </AnimatedButton>
                 </div>
                 <div className="mxd-services-stack__title width-60">
                   <h3 className="opposite">
                     Zeal X
-                    <span className="tag tag-default tag-outline-opposite" style={{ marginLeft: "1rem", fontSize: "0.6em", verticalAlign: "middle" }}>
+                    <span className="platform-status platform-status--live platform-status--opposite">
                       Live
                     </span>
                   </h3>
@@ -53,16 +53,18 @@ export default function Platforms() {
                 </div>
               </div>
 
-              {/* Spaces — Next Week */}
+              {/* Spaces — Live */}
               <div className="mxd-services-stack__inner justify-between bg-accent">
                 <div className="mxd-services-stack__controls">
-                  <span className="btn btn-default btn-disabled">Access Now</span>
+                  <AnimatedButton text="Access Now" className="btn btn-anim btn-default btn-outline slide-right-up platform-cta platform-cta--light" href="https://grahasvr.space/">
+                    <i className="ph-bold ph-arrow-up-right" />
+                  </AnimatedButton>
                 </div>
                 <div className="mxd-services-stack__title width-60">
                   <h3 className="opposite">
                     Spaces
-                    <span className="tag tag-default tag-outline-opposite" style={{ marginLeft: "1rem", fontSize: "0.6em", verticalAlign: "middle" }}>
-                      Launching Next Week
+                    <span className="platform-status platform-status--live platform-status--opposite">
+                      Live
                     </span>
                   </h3>
                 </div>
@@ -93,14 +95,14 @@ export default function Platforms() {
               {/* Canvas — Coming Soon */}
               <div className="mxd-services-stack__inner radius-dark justify-between bg-base-tint">
                 <div className="mxd-services-stack__controls">
-                  <AnimatedButton text="Join Waitlist" className="btn btn-anim btn-default btn-outline slide-right-up" href="/contact">
+                  <AnimatedButton text="Join Waitlist" className="btn btn-anim btn-default btn-outline slide-right-up platform-cta" href="/contact">
                     <i className="ph-bold ph-arrow-up-right" />
                   </AnimatedButton>
                 </div>
                 <div className="mxd-services-stack__title width-60">
                   <h3>
                     Canvas
-                    <span className="tag tag-default tag-outline" style={{ marginLeft: "1rem", fontSize: "0.6em", verticalAlign: "middle" }}>
+                    <span className="platform-status platform-status--soon">
                       Coming Soon
                     </span>
                   </h3>
@@ -134,10 +136,75 @@ export default function Platforms() {
         {/* Block - Platforms Stacking Cards End */}
       </div>
       <style>{`
-        .btn-disabled {
-          opacity: 0.5;
+        .platform-cta {
+          min-width: 18rem;
+          justify-content: center;
+        }
+        .platform-cta--light {
+          background: var(--base-tint);
+          border-color: var(--st-bright--light, #161616);
+          color: var(--t-bright--light, #161616);
+        }
+        .platform-cta--light i,
+        .platform-cta--light .btn-caption {
+          color: var(--t-bright--light, #161616);
+        }
+        .platform-cta--disabled {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.8rem;
+          opacity: 0.7;
           cursor: not-allowed;
           pointer-events: none;
+        }
+        .platform-status {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.7rem;
+          margin-left: 1.2rem;
+          padding: 0.6rem 1rem;
+          border: 1px solid var(--stroke-elements);
+          border-radius: 999px;
+          color: var(--t-bright);
+          font: normal var(--fw-medium) 1.4rem/1 var(--_font-default);
+          letter-spacing: 0.02em;
+          vertical-align: middle;
+          white-space: nowrap;
+        }
+        .platform-status::before {
+          content: "";
+          width: 0.65rem;
+          height: 0.65rem;
+          border-radius: 50%;
+          background: currentColor;
+        }
+        .platform-status--opposite {
+          border-color: rgba(255, 255, 255, 0.36);
+          color: var(--t-opp-bright);
+        }
+        .platform-status--live {
+          background: rgba(88, 214, 141, 0.16);
+        }
+        .platform-status--next {
+          background: rgba(255, 255, 255, 0.14);
+        }
+        .platform-status--soon {
+          background: rgba(5, 132, 199, 0.1);
+          color: var(--accent--light, #0584c7);
+        }
+        @media only screen and (max-width: 767px) {
+          .platform-cta {
+            width: 100%;
+            min-width: 0;
+          }
+          .platform-status {
+            margin: 1rem 0 0;
+          }
+          .mxd-services-stack__title h3 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
         }
       `}</style>
     </div>

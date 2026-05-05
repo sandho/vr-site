@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import AnimatedButton from "@/components/animation/AnimatedButton";
-import ThemeSwitcherButton from "@/components/headers/ColorSwitcher";
 
 const navLinks = [
   { label: "Solutions", href: "/solutions" },
@@ -132,22 +131,6 @@ export default function GrahasHeader() {
         className={`mxd-nav__wrap ${menuOpen ? "active_menu" : ""}`}
         data-lenis-prevent=""
       >
-        {/* Hamburger trigger */}
-        <div className="mxd-nav__contain loading__fade">
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              handleToggle();
-            }}
-            className={`mxd-nav__hamburger ${menuOpen ? "nav-open" : ""}`}
-          >
-            <div className="hamburger__base" />
-            <div className="hamburger__line" />
-            <div className="hamburger__line" />
-          </a>
-        </div>
-
         {/* Full-screen menu — hidden by CSS display:none; shown by GSAP */}
         <div
           ref={menuWrapperRef}
@@ -226,7 +209,7 @@ export default function GrahasHeader() {
               {/* Bottom data line */}
               <div className="mxd-menu__data fade-in-up-elm">
                 <p className="t-xsmall">
-                  Chennai, India · <StarSvg /> srinivasan@grahasvr.com
+                  Chennai, India · <StarSvg /> enterprise@grahasvr.space
                 </p>
                 <p className="t-xsmall">
                   © {new Date().getFullYear()} GRAHAs VR
@@ -259,7 +242,6 @@ export default function GrahasHeader() {
 
         {/* Controls */}
         <div className="mxd-header__controls loading__fade">
-          <ThemeSwitcherButton />
           <AnimatedButton
             text="Start Pilot"
             className="btn btn-anim btn-default btn-mobile-icon btn-outline slide-right"

@@ -1,6 +1,5 @@
 import GrahasHeader from "@/components/homes/grahas-vr/GrahasHeader";
 import Footer from "@/components/homes/grahas-vr/Footer";
-import GrahasBreadcrumbs from "@/components/homes/grahas-vr/GrahasBreadcrumbs";
 
 export default function GrahasVRLayout({
   children,
@@ -19,9 +18,16 @@ export default function GrahasVRLayout({
           --additional--dark: #0584c7;
           --additional-rgb--dark: 5, 132, 199;
         }
+        .mxd-page-content > .mxd-section:first-child:not(.mxd-hero-section) {
+          padding-top: clamp(10rem, 12vw, 14rem);
+        }
+        @media only screen and (max-width: 767px) {
+          .mxd-page-content > .mxd-section:first-child:not(.mxd-hero-section) {
+            padding-top: 9rem;
+          }
+        }
       `}</style>
       <GrahasHeader />
-      <GrahasBreadcrumbs />
       {children}
       <Footer />
     </>
