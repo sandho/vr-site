@@ -235,7 +235,7 @@ export default function GrahasHeader() {
             <img
               src="/img/grahas-logo.png"
               alt="GRAHAs VR"
-              style={{ height: "5rem", width: "auto", objectFit: "contain" }}
+              style={{ height: "8rem", width: "auto", objectFit: "contain" }}
             />
           </Link>
         </div>

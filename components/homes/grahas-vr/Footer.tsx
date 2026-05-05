@@ -94,6 +94,8 @@ export default function Footer() {
                 text="grahasvr.space"
                 className="btn btn-anim btn-default btn-outline slide-right-up"
                 href="https://grahasvr.space/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="ph-bold ph-arrow-up-right" />
               </AnimatedButton>
@@ -101,6 +103,8 @@ export default function Footer() {
                 text="zealx.in"
                 className="btn btn-anim btn-default btn-outline slide-right-up"
                 href="https://zealx.in"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="ph-bold ph-arrow-up-right" />
               </AnimatedButton>
@@ -108,6 +112,8 @@ export default function Footer() {
                 text="Meta Store"
                 className="btn btn-anim btn-default btn-outline slide-right-up"
                 href="https://www.meta.com/en-gb/experiences/zeal-x-enterprise-training/26072684335657935/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="ph-bold ph-arrow-up-right" />
               </AnimatedButton>

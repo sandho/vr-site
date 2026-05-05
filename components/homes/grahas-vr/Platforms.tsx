@@ -18,7 +18,7 @@ export default function Platforms() {
               {/* Zeal X — Live */}
               <div className="mxd-services-stack__inner justify-between bg-base-opp">
                 <div className="mxd-services-stack__controls">
-                  <AnimatedButton text="Get on Meta Store" className="btn btn-anim btn-default btn-outline slide-right-up platform-cta platform-cta--light" href="https://www.meta.com/en-gb/experiences/zeal-x-enterprise-training/26072684335657935/">
+                  <AnimatedButton text="Get on Meta Store" className="btn btn-anim btn-default btn-outline slide-right-up platform-cta platform-cta--light" href="https://www.meta.com/en-gb/experiences/zeal-x-enterprise-training/26072684335657935/" target="_blank" rel="noopener noreferrer">
                     <i className="ph-bold ph-arrow-up-right" />
                   </AnimatedButton>
                 </div>
@@ -56,7 +56,7 @@ export default function Platforms() {
               {/* Spaces — Live */}
               <div className="mxd-services-stack__inner justify-between bg-accent">
                 <div className="mxd-services-stack__controls">
-                  <AnimatedButton text="Access Now" className="btn btn-anim btn-default btn-outline slide-right-up platform-cta platform-cta--light" href="https://grahasvr.space/">
+                  <AnimatedButton text="Access Now" className="btn btn-anim btn-default btn-outline slide-right-up platform-cta platform-cta--light" href="https://grahasvr.space/" target="_blank" rel="noopener noreferrer">
                     <i className="ph-bold ph-arrow-up-right" />
                   </AnimatedButton>
                 </div>

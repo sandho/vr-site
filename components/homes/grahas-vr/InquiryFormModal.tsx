@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 type InquiryFormModalProps = {
   triggerLabel: string;
@@ -23,6 +24,11 @@ export default function InquiryFormModal({
 }: InquiryFormModalProps) {
   const [formOpen, setFormOpen] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!formOpen) return;
@@ -77,6 +83,83 @@ export default function InquiryFormModal({
     }
   };
 
+  const modal = (
+    <div
+      className="inquiry-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="inquiry-modal-title"
+    >
+      <button
+        className="inquiry-modal__backdrop"
+        type="button"
+        aria-label="Close inquiry form"
+        onClick={closeForm}
+      />
+      <div className="inquiry-modal__panel">
+        <button
+          className="inquiry-modal__close"
+          type="button"
+          aria-label="Close inquiry form"
+          onClick={closeForm}
+          disabled={formStatus === "submitting"}
+        >
+          <i className="ph-bold ph-x" />
+        </button>
+        <form
+          className="inquiry-form-card"
+          action="https://formsubmit.co/enterprise@grahasvr.space"
+          method="POST"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="_subject" value={subject} />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <div className="inquiry-form-card__head">
+            <p className="t-small">{eyebrow}</p>
+            <h3 id="inquiry-modal-title">{title}</h3>
+          </div>
+
+          <div className="inquiry-form-card__fields">
+            <label className="inquiry-form-field">
+              <span>Full Name</span>
+              <input name="Full Name" type="text" autoComplete="name" required />
+            </label>
+            <label className="inquiry-form-field">
+              <span>Company / Organization</span>
+              <input name="Company / Organization" type="text" autoComplete="organization" required />
+            </label>
+            <label className="inquiry-form-field">
+              <span>Email Address</span>
+              <input name="Email Address" type="email" autoComplete="email" required />
+            </label>
+            <label className="inquiry-form-field">
+              <span>Mobile Number</span>
+              <input name="Mobile Number" type="tel" autoComplete="tel" required />
+            </label>
+          </div>
+
+          <button className="btn btn-default btn-outline inquiry-form-submit" type="submit">
+            {formStatus === "submitting" ? "Submitting..." : "Submit Inquiry"}
+            <i className="ph-bold ph-arrow-up-right" />
+          </button>
+
+          {formStatus === "success" && (
+            <p className="inquiry-form-status inquiry-form-status--success" role="status">
+              {successMessage}
+            </p>
+          )}
+          {formStatus === "error" && (
+            <p className="inquiry-form-status inquiry-form-status--error" role="alert">
+              Failed. Please check your details and try again.
+            </p>
+          )}
+        </form>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <button className={className} type="button" onClick={openForm}>
@@ -84,82 +167,7 @@ export default function InquiryFormModal({
         {showIcon && <i className="ph-bold ph-arrow-up-right" />}
       </button>
 
-      {formOpen && (
-        <div
-          className="inquiry-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="inquiry-modal-title"
-        >
-          <button
-            className="inquiry-modal__backdrop"
-            type="button"
-            aria-label="Close inquiry form"
-            onClick={closeForm}
-          />
-          <div className="inquiry-modal__panel">
-            <button
-              className="inquiry-modal__close"
-              type="button"
-              aria-label="Close inquiry form"
-              onClick={closeForm}
-              disabled={formStatus === "submitting"}
-            >
-              <i className="ph-bold ph-x" />
-            </button>
-            <form
-              className="inquiry-form-card"
-              action="https://formsubmit.co/enterprise@grahasvr.space"
-              method="POST"
-              onSubmit={handleSubmit}
-            >
-              <input type="hidden" name="_subject" value={subject} />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
-
-              <div className="inquiry-form-card__head">
-                <p className="t-small">{eyebrow}</p>
-                <h3 id="inquiry-modal-title">{title}</h3>
-              </div>
-
-              <div className="inquiry-form-card__fields">
-                <label className="inquiry-form-field">
-                  <span>Full Name</span>
-                  <input name="Full Name" type="text" autoComplete="name" required />
-                </label>
-                <label className="inquiry-form-field">
-                  <span>Company / Organization</span>
-                  <input name="Company / Organization" type="text" autoComplete="organization" required />
-                </label>
-                <label className="inquiry-form-field">
-                  <span>Email Address</span>
-                  <input name="Email Address" type="email" autoComplete="email" required />
-                </label>
-                <label className="inquiry-form-field">
-                  <span>Mobile Number</span>
-                  <input name="Mobile Number" type="tel" autoComplete="tel" required />
-                </label>
-              </div>
-
-              <button className="btn btn-default btn-outline inquiry-form-submit" type="submit">
-                {formStatus === "submitting" ? "Submitting..." : "Submit Inquiry"}
-                <i className="ph-bold ph-arrow-up-right" />
-              </button>
-
-              {formStatus === "success" && (
-                <p className="inquiry-form-status inquiry-form-status--success" role="status">
-                  {successMessage}
-                </p>
-              )}
-              {formStatus === "error" && (
-                <p className="inquiry-form-status inquiry-form-status--error" role="alert">
-                  Failed. Please check your details and try again.
-                </p>
-              )}
-            </form>
-          </div>
-        </div>
-      )}
+      {mounted && formOpen && createPortal(modal, document.body)}
 
       <style>{`
         .inquiry-modal {
@@ -169,12 +177,13 @@ export default function InquiryFormModal({
           display: grid;
           place-items: center;
           padding: clamp(1.6rem, 4vw, 3.2rem);
+          background: rgba(0, 0, 0, 0.58);
         }
         .inquiry-modal__backdrop {
           position: absolute;
           inset: 0;
           border: 0;
-          background: rgba(0, 0, 0, 0.58);
+          background: transparent;
           cursor: pointer;
         }
         .inquiry-modal__panel {
@@ -269,11 +278,38 @@ export default function InquiryFormModal({
           color: var(--t-bright);
         }
         @media only screen and (max-width: 575px) {
+          .inquiry-modal {
+            place-items: stretch;
+            padding: 0;
+            background: var(--base-tint);
+          }
+          .inquiry-modal__backdrop {
+            display: none;
+          }
           .inquiry-modal__panel {
-            max-height: 90vh;
+            width: 100%;
+            max-height: none;
+            height: 100vh;
+            height: 100dvh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          .inquiry-modal__close {
+            position: fixed;
+            top: max(1.2rem, env(safe-area-inset-top));
+            right: max(1.2rem, env(safe-area-inset-right));
           }
           .inquiry-form-card {
-            padding: 5.2rem 1.6rem 1.6rem;
+            min-height: 100%;
+            border: 0;
+            border-radius: 0;
+            padding: calc(6.8rem + env(safe-area-inset-top)) 1.6rem calc(2rem + env(safe-area-inset-bottom));
+          }
+          .inquiry-form-card__head h3 {
+            font-size: 3.4rem;
+          }
+          .inquiry-form-field input {
+            height: 5.2rem;
           }
         }
       `}</style>

@@ -26,7 +26,7 @@ const demos = [
     thumb: "https://img.youtube.com/vi/yX3I7oz-7ME/hqdefault.jpg",
   },
   {
-    title: "Aviation",
+    title: "Pharma",
     subtitle: "AR / VR Training for Pharmaceutical Industries",
     href: "https://youtu.be/HLuuOVJW5xA",
     thumb: "https://img.youtube.com/vi/HLuuOVJW5xA/hqdefault.jpg",

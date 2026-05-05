@@ -27,7 +27,9 @@ export default function StepFramework() {
                     <AnimatedButton
                       text="Read our Research"
                       className="btn btn-anim btn-default btn-outline slide-right-up"
-                      href="/step-framework"
+                      href="https://ia600908.us.archive.org/13/items/vol15n05/vol15n05.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <i className="ph-bold ph-arrow-up-right" />
                     </AnimatedButton>
