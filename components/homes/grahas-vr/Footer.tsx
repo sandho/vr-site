@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Platforms", href: "/platforms" },
   { label: "Partners", href: "/partners" },
   { label: "Team", href: "/team" },
-  { label: "Start Pilot", href: "/contact" },
+  { label: "Book a Demo", href: "/contact" },
 ];
 
 const socials = [

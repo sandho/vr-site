@@ -38,7 +38,7 @@ export default function WhatWeBuild() {
                   </ul>
                   <div className="mxd-section-title__controls anim-uni-in-up">
                     <AnimatedButton
-                      text="Start Your Pilot Project"
+                      text="Book a Demo"
                       className="btn btn-anim btn-default btn-outline slide-right-up"
                       href="/contact"
                     >

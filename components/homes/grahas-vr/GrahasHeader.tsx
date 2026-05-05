@@ -170,7 +170,7 @@ export default function GrahasHeader() {
                       ))}
                       <li className="main-menu__item fade-in-up-elm">
                         <AnimatedButton
-                          text="Start Pilot →"
+                          text="Book a Demo →"
                           className="main-menu__link btn btn-anim"
                           href="/contact"
                         />
@@ -243,14 +243,32 @@ export default function GrahasHeader() {
         {/* Controls */}
         <div className="mxd-header__controls loading__fade">
           <AnimatedButton
-            text="Start Pilot"
-            className="btn btn-anim btn-default btn-mobile-icon btn-outline slide-right"
+            text="Book a Demo"
+            className="btn btn-anim btn-default btn-mobile-icon btn-outline slide-right grahas-header-demo-btn"
             href="/contact"
           >
             <i className="ph-bold ph-arrow-up-right" />
           </AnimatedButton>
         </div>
       </header>
+      <style>{`
+        .mxd-header {
+          width: calc(100% - 6rem);
+        }
+        .grahas-header-demo-btn {
+          white-space: nowrap;
+        }
+        @media only screen and (min-width: 768px) {
+          .mxd-header {
+            width: calc(100% - 12rem);
+          }
+        }
+        @media only screen and (min-width: 1600px) {
+          .mxd-header {
+            width: calc(100% - 18rem);
+          }
+        }
+      `}</style>
     </>
   );
 }
