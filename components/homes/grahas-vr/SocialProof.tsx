@@ -11,6 +11,15 @@ const logos = [
   { name: "Available on Meta Store", src: "/img/social/meta-quest-seeklogo.png", href: "https://www.meta.com/en-gb/experiences/zeal-x-enterprise-training/26072684335657935/" },
 ];
 
+const trustMarkers = [
+  "Funded and supported by Vel Tech TBI, IIT Mandi Catalyst, and the IIT Mandi iHub Foundation.",
+  "NASSCOM Emerge 50 Startups",
+  "Top 100 Startups (Silicon Valley Global Conference by Startup Grind / Google for Startups)",
+  "Best XR Startup (Awarded by Dr. A.R. Rahman at XTIC Summit, IIT Madras)",
+  "Top Placer at Go Global Awards (Augmented Reality category)",
+  "Successful deployments with TVS Group and Kritilabs.",
+];
+
 export default function SocialProof() {
   return (
     <div className="mxd-section padding-pre-title">
@@ -28,7 +37,8 @@ export default function SocialProof() {
                   <div className="mxd-section-title__hrdescr">
                     <p className="anim-uni-in-up">
                       Enterprise teams, accelerators, and ecosystem partners
-                      backing practical immersive technology.
+                      backing practical immersive technology for Industrial
+                      AR/VR solutions.
                     </p>
                   </div>
                 </div>
@@ -83,6 +93,14 @@ export default function SocialProof() {
             </div>
           </div>
         </div>
+
+        <div className="mxd-block">
+          <div className="grahas-trust-markers anim-uni-in-up">
+            {trustMarkers.map((marker) => (
+              <p key={marker}>{marker}</p>
+            ))}
+          </div>
+        </div>
       </div>
 
       <style>{`
@@ -115,6 +133,26 @@ export default function SocialProof() {
         }
         .no-touch .mxd-partners-cards__inner:hover .grahas-partner-logo span {
           opacity: 1;
+        }
+        .grahas-trust-markers {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1rem;
+          padding-top: 2rem;
+        }
+        .grahas-trust-markers p {
+          min-height: 100%;
+          margin: 0;
+          padding: 1.2rem;
+          border: 1px solid var(--stroke-elements);
+          border-radius: var(--_radius-s);
+          color: var(--t-muted);
+          font: normal var(--fw-medium) 1.5rem/1.35 var(--_font-default);
+        }
+        @media (max-width: 991px) {
+          .grahas-trust-markers {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
     </div>

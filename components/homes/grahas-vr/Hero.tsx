@@ -20,6 +20,10 @@ const marqueeItems = [
   "Industrial Machinery",
   "Medical & Pharma Labs",
   "Office & IT Environments",
+  "Custom XR Development Chennai",
+  "Enterprise VR Training Solutions India",
+  "Industrial AR/VR Solutions",
+  "WebAR for Manufacturing",
   "Digital Twins",
   "VR Training",
   "AR Visualization",
@@ -78,6 +82,7 @@ export default function Hero() {
             <div className="grahas-hero-video-player">
               <video
                 className="grahas-hero-video"
+                aria-label="Industrial worker using GRAHAs VR enterprise training simulator on a manufacturing factory floor."
                 preload="auto"
                 autoPlay
                 loop
@@ -96,11 +101,12 @@ export default function Hero() {
               Engineering-grade immersive technology
             </p>
             <h1 className="hero-04-title grahas-hero-title loading__item">
-              Transforming Industries &amp; Enterprises with Immersive Tech.
+              Custom XR Development in Chennai for Industrial AR/VR and Enterprise Training.
             </h1>
             <p className="t-large loading__item">
-              We build engineering-grade XR solutions that solve real business
-              problems. Trusted by TVS Group, IIT Mandi, and 120+ Enterprise Users.
+              We build engineering-grade XR solutions, VR training simulators,
+              Digital Twins, and WebAR for manufacturing. Trusted by TVS Group,
+              IIT Mandi, and 120+ Enterprise Users.
             </p>
             <div className="grahas-hero-actions loading__item">
               <AnimatedButton

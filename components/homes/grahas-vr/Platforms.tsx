@@ -38,15 +38,16 @@ export default function Platforms() {
                     <span className="tag tag-default tag-outline-opposite">Electrical Safety</span>
                   </div>
                   <p className="t-small-mobile t-opposite">
-                    Enterprise Safety Library. 120+ Users. Modules: Electrical
-                    Safety (Live), Fire Safety (Coming this Month).
+                    Enterprise Safety Library for VR for electrical safety
+                    compliance. 120+ Users. Modules: Electrical Safety (Live),
+                    Fire Safety (Coming this Month).
                   </p>
                 </div>
                 <div className="services-stack__image">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     className="service-img service-img-m"
-                    alt="Zeal X Platform"
+                    alt="Zeal X Virtual Reality Electrical Safety Training module by GRAHAs VR, available on the Meta Quest Store."
                     src="/img/gen/Zeal_X.jpg"
                     style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />
@@ -85,7 +86,7 @@ export default function Platforms() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     className="service-img service-img-m"
-                    alt="Spaces Platform"
+                    alt="GRAHAs VR Spaces WebAR product visualization showing engineering-grade 3D models in a web browser."
                     src="/img/gen/Spaces_Cover.jpg"
                     style={{ height: "75%", width: "auto", objectFit: "contain", borderRadius: "var(--radius-m, 16px)" }}
                   />

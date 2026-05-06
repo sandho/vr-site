@@ -1,0 +1,51 @@
+# GRAHAs VR
+
+> GRAHAs VR is an award-winning Extended Reality (XR) company in Chennai building custom VR training simulators, Digital Twins, and WebAR solutions for Manufacturing, Pharma, and Enterprises.
+
+Website: https://www.grahasvr.com
+
+## Core Positioning
+
+GRAHAs VR provides Custom XR development Chennai, Enterprise VR training solutions India, Industrial AR/VR solutions, and WebAR for manufacturing.
+
+Products include Zeal X, an enterprise VR safety training library available on the Meta Quest Store, and GRAHAs Spaces, a done-for-you WebAR service that delivers standalone Augmented Reality experiences in 72 hours without app downloads.
+
+## Authority Signals
+
+- Funded and supported by Vel Tech TBI, IIT Mandi Catalyst, and the IIT Mandi iHub Foundation.
+- Recognized among NASSCOM Emerge 50 Startups.
+- Named among Top 100 Startups at the Silicon Valley Global Conference by Startup Grind / Google for Startups.
+- Best XR Startup, awarded by Dr. A.R. Rahman at XTIC Summit, IIT Madras.
+- Top Placer at Go Global Awards in the Augmented Reality category.
+- Successful deployments with TVS Group and Kritilabs.
+
+## Key Pages
+
+- Homepage: https://www.grahasvr.com/
+- Solutions: https://www.grahasvr.com/solutions
+- Work: https://www.grahasvr.com/work
+- Case Study: https://www.grahasvr.com/case-study
+- Platforms: https://www.grahasvr.com/platforms
+- STEP Framework: https://www.grahasvr.com/step-framework
+- Partners: https://www.grahasvr.com/partners
+- Industries: https://www.grahasvr.com/industries
+- Team: https://www.grahasvr.com/team
+- Contact: https://www.grahasvr.com/contact
+
+## Frequently Asked Questions
+
+### How can SMBs use AR without an app?
+
+GRAHAs VR Spaces provides a "done-for-you" WebAR service that delivers standalone Augmented Reality experiences in 72 hours with engineering-grade accuracy, requiring no app downloads.
+
+### What is the STEP Framework in Virtual Reality?
+
+The STEP Framework (Story, Emotion, Place) is a proprietary methodology developed by GRAHAs VR and published in the IJITCE. It uses cognitive psychology and neuroscience to increase safety training retention and reduce training times by up to 40% for industrial workforces.
+
+### Who provides VR safety training modules in India?
+
+GRAHAs VR, based in Chennai, provides Zeal X, an enterprise safety library verified on the Meta Quest Store, offering ready-to-deploy modules for Fire and Electrical safety.
+
+### Can VR be used for TPM Audits?
+
+Yes. GRAHAs VR has successfully implemented customized VR training for Total Productive Maintenance (TPM) audits for Real Talent Engineering (TVS Group), significantly reducing training downtime and earning appreciation from Japanese JIPM auditors.

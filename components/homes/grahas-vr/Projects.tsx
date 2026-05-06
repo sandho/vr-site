@@ -4,30 +4,35 @@ const demos = [
   {
     title: "IoT / Security",
     subtitle: "PCMS ProSec Guard Demo (Kritilabs)",
+    alt: "Kritilabs PCMS ProSec Guard IoT security deployment by GRAHAs VR.",
     href: "https://www.youtube.com/watch?v=4lI0TQADhqI",
     thumb: "https://img.youtube.com/vi/4lI0TQADhqI/hqdefault.jpg",
   },
   {
     title: "Automotive",
     subtitle: "AR Engine Assembly Training",
+    alt: "Automotive AR engine assembly training module developed by GRAHAs VR.",
     href: "https://www.youtube.com/watch?v=buGl51RHeCs",
     thumb: "https://img.youtube.com/vi/buGl51RHeCs/hqdefault.jpg",
   },
   {
     title: "Enterprise Safety",
     subtitle: "Zeal X VR Simulation",
+    alt: "Zeal X Virtual Reality safety simulation for enterprise training by GRAHAs VR.",
     href: "https://www.youtube.com/watch?v=kKfEU5fNv68",
     thumb: "https://img.youtube.com/vi/kKfEU5fNv68/hqdefault.jpg",
   },
   {
     title: "AEC",
     subtitle: "Architecture & Construction Walkthrough",
+    alt: "Architecture and construction walkthrough using GRAHAs VR immersive visualization.",
     href: "https://www.youtube.com/watch?v=yX3I7oz-7ME",
     thumb: "https://img.youtube.com/vi/yX3I7oz-7ME/hqdefault.jpg",
   },
   {
     title: "Pharma",
     subtitle: "AR / VR Training for Pharmaceutical Industries",
+    alt: "AR and VR training for pharmaceutical industries developed by GRAHAs VR.",
     href: "https://youtu.be/HLuuOVJW5xA",
     thumb: "https://img.youtube.com/vi/HLuuOVJW5xA/hqdefault.jpg",
   },
@@ -50,7 +55,10 @@ export default function Projects() {
                 </div>
                 <div className="col-12 col-xl-5 mxd-grid-item no-margin">
                   <div className="mxd-section-title__hrdescr anim-uni-in-up">
-                    <p>Cross-industry use cases from security to aviation.</p>
+                    <p>
+                      Cross-industry use cases from Kritilabs security to pharma,
+                      automotive, and aviation training.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -70,7 +78,7 @@ export default function Projects() {
               >
                 <div className="demo-vault-card__media">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={demo.thumb} alt={demo.subtitle} />
+                  <img src={demo.thumb} alt={demo.alt} />
                   <span className="demo-vault-card__play">
                     <i className="ph-fill ph-play" />
                   </span>

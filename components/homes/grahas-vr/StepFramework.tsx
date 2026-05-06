@@ -19,8 +19,10 @@ export default function StepFramework() {
                   <div className="mxd-section-title__descr anim-uni-in-up">
                     <p>
                       We engineer retention. Our proprietary STEP Framework™
-                      (Story, Emotion, Place) leverages cognitive psychology to
-                      ensure your workforce actually remembers what they learn.
+                      (Story, Emotion, Place) is published in the IJITCE and
+                      leverages cognitive psychology and neuroscience for VR
+                      learning, helping industrial teams reduce training time
+                      by up to 40%.
                     </p>
                   </div>
                   <div className="mxd-section-title__controls anim-uni-in-up">
@@ -40,7 +42,7 @@ export default function StepFramework() {
                 <div className="step-diagram anim-uni-in-up">
                   <Image
                     src="/img/gen/STEP_Framework.png"
-                    alt="STEP Framework diagram"
+                    alt="The STEP Framework by GRAHAs VR: A cognitive psychology model combining Story, Emotion, and Place for effective VR training."
                     width={800}
                     height={600}
                     className="step-diagram__img"

@@ -5,6 +5,7 @@ const features = [
   "100% Customized: Built on your specific machinery/environment.",
   "Cross-Platform: VR, AR, MR, and Web-based.",
   "Proven ROI: Reduced training time and operational errors.",
+  "Compliance-ready: VR for electrical safety compliance and TPM workflows.",
 ];
 
 export default function WhatWeBuild() {
@@ -18,14 +19,15 @@ export default function WhatWeBuild() {
                 <div className="mxd-section-title no-margin-desktop">
                   <div className="mxd-section-title__title anim-uni-in-up">
                     <RevealText as="h2" className="reveal-type">
-                      Tailored XR Solutions for Your Enterprise.
+                      Industrial AR/VR Solutions for Your Enterprise.
                     </RevealText>
                   </div>
                   <div className="mxd-section-title__descr anim-uni-in-up">
                     <p>
                       We don&apos;t believe in one-size-fits-all. We build
-                      Digital Twins, Training Simulators, and Marketing
-                      Experiences specific to your SOPs.
+                      Digital Twins, custom VR training simulators, WebAR for
+                      manufacturing, and Marketing Experiences specific to your
+                      SOPs.
                     </p>
                   </div>
                   <ul className="grahas-feature-list anim-uni-in-up">
@@ -50,7 +52,7 @@ export default function WhatWeBuild() {
               <div className="col-12 col-xl-7 mxd-grid-item no-margin">
                 <div className="digital-twin-split anim-uni-in-up">
                   <div className="digital-twin-panel">
-                    <img src="/img/works/custom-built-xr-vr-ar-mr.png" alt="Real industrial machine reference" />
+                    <img src="/img/works/custom-built-xr-vr-ar-mr.png" alt="Industrial worker using GRAHAs VR enterprise training simulator on a manufacturing factory floor." />
                   </div>
                 </div>
               </div>

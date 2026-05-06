@@ -1,24 +1,35 @@
 import Image from "next/image";
 import RevealText from "@/components/animation/RevealText";
 
-const team = [
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+  alt?: string;
+};
+
+const team: TeamMember[] = [
   {
     name: "Srinivasan Yagnanarayanan",
     role: "Founder & CEO",
-    bio: "Stanford Seed Spark Alumnus with 17+ years of industry experience and XR perception engineering.",
+    bio: "Alumnus of the Stanford Seed Spark Program with 17+ years of industry experience and XR perception engineering.",
     image: "/img/founding-team/6W9A0421_Srini.JPG",
+    alt: "Srinivasan Yagnanarayanan, Founder and CEO of GRAHAs VR",
   },
   {
     name: "Sriram Kesavan",
     role: "Co-Founder & COO",
     bio: "10+ years of experience in the Automotive sector with leading global brands.",
     image: "/img/founding-team/Sriram.jpg",
+    alt: "Sriram Kesavan, Co-Founder and COO of GRAHAs VR",
   },
   {
     name: "Dr. Rajaram Venkataraman",
     role: "Adviser",
     bio: "Industry Veteran & Convener of the Technology Panel at FICCI Tamil Nadu.",
     image: "/img/founding-team/Dr. Rajaram Venkataraman.jpeg",
+    alt: "Dr. Rajaram Venkataraman, Adviser of GRAHAs VR and Convener of the Technology Panel at FICCI Tamil Nadu",
   },
   {
     name: "Passionate XR Team",
@@ -65,7 +76,7 @@ export default function Team() {
                     {member.image && (
                       <div style={{ width: "100%", position: "relative", paddingBottom: "100%", overflow: "hidden", borderRadius: "var(--radius-m, 16px)" }}>
                         <Image
-                          alt={member.name}
+                          alt={member.alt ?? member.name}
                           src={member.image}
                           fill
                           priority

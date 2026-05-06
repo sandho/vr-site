@@ -235,7 +235,7 @@ export default function GrahasHeader() {
             <img
               src="/img/grahas-logo.png"
               alt="GRAHAs VR"
-              style={{ height: "8rem", width: "auto", objectFit: "contain" }}
+              className="grahas-header-logo"
             />
           </Link>
         </div>
@@ -254,18 +254,58 @@ export default function GrahasHeader() {
       <style>{`
         .mxd-header {
           width: calc(100% - 6rem);
+          align-items: center;
+          gap: 1.2rem;
+        }
+        .mxd-header__logo,
+        .mxd-logo {
+          min-width: 0;
+        }
+        .mxd-header__controls {
+          flex-shrink: 0;
+        }
+        .grahas-header-logo {
+          display: block;
+          width: auto;
+          height: clamp(4.2rem, 8vw, 8rem);
+          max-width: min(56rem, calc(100vw - 15rem));
+          object-fit: contain;
         }
         .grahas-header-demo-btn {
           white-space: nowrap;
+        }
+        @media only screen and (max-width: 767px) {
+          .mxd-header {
+            left: 2rem;
+            width: calc(100% - 4rem);
+            padding-top: 2rem;
+          }
+          .grahas-header-logo {
+            height: clamp(3.8rem, 10vw, 5.8rem);
+            max-width: calc(100vw - 12rem);
+          }
+        }
+        @media only screen and (max-width: 420px) {
+          .grahas-header-logo {
+            height: 3.8rem;
+            max-width: calc(100vw - 10.5rem);
+          }
         }
         @media only screen and (min-width: 768px) {
           .mxd-header {
             width: calc(100% - 12rem);
           }
+          .grahas-header-logo {
+            max-width: min(58rem, calc(100vw - 19rem));
+          }
         }
         @media only screen and (min-width: 1600px) {
           .mxd-header {
             width: calc(100% - 18rem);
+          }
+          .grahas-header-logo {
+            height: 8rem;
+            max-width: 62rem;
           }
         }
       `}</style>

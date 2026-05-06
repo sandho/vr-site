@@ -31,8 +31,9 @@ export default function CaseStudy() {
                               <p className="anim-uni-in-up">
                                 See how Real Talent Engineering (TVS Group) moved
                                 from manual SOPs to immersive VR, slashing
-                                training times and earning praise from Japanese
-                                JIPM Auditors.
+                                training times with Total Productive Maintenance
+                                (TPM) using VR and earning praise from Japanese
+                                JIPM auditors.
                               </p>
                             </div>
                           </div>
@@ -60,7 +61,7 @@ export default function CaseStudy() {
                     <div className="case-study-media">
                       <iframe
                         src="https://www.youtube.com/embed/BkGDpENtHZ8"
-                        title="TVS Group VR Training Case Study"
+                        title="Real Talent Engineering TVS Group employees reducing training time by 40 percent using GRAHAs VR immersive safety modules during a TPM Audit."
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       />
@@ -85,7 +86,8 @@ export default function CaseStudy() {
                       <div className="mxd-testimonials-card__text">
                         <p className="anim-uni-in-up">
                           Immersive SOP training helped teams practice repeatable
-                          TPM procedures before entering the shop-floor workflow.
+                          TPM procedures before entering the shop-floor workflow,
+                          reducing industrial training time with VR.
                         </p>
                       </div>
                     </div>
