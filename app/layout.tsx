@@ -4,9 +4,16 @@ import { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Rayo - Digital Agency & Personal Portfolio React Nextjs Template",
+  title: {
+    default: "GRAHAs VR — Engineering-Grade XR for Industry",
+    template: "%s",
+  },
   description:
-    "Rayo - Digital Agency & Personal Portfolio React Nextjs Template",
+    "GRAHAs VR builds high-fidelity XR solutions for industrial training, digital twins, AR visualization, and enterprise spatial computing.",
+  icons: {
+    icon: "/img/favicon/favicon.ico",
+    apple: "/img/favicon/apple-touch-icon.png",
+  },
 };
 const setColorSchemeScript = `
 (function() {
