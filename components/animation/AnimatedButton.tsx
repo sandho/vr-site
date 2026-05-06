@@ -15,6 +15,7 @@ type OwnProps = {
   children?: React.ReactNode;
   href?: string;
   target?: string;
+  rel?: string;
 };
 
 type PolyProps<As extends ElementType> = OwnProps &
@@ -40,6 +41,7 @@ export default function AnimatedButton<As extends ElementType = "div">(
     position = "next",
     href,
     target,
+    rel,
     ...rest
   } = props as PolyProps<ElementType>;
 
@@ -73,7 +75,7 @@ export default function AnimatedButton<As extends ElementType = "div">(
   const tagProps = {
     className: `btn-anim ${className}`,
     "aria-label": text,
-    ...(href && !isInternalLink ? { href, target } : {}),
+    ...(href && !isInternalLink ? { href, target, rel } : {}),
     ...(isInternalLink ? { href } : {}),
     ...rest,
   };

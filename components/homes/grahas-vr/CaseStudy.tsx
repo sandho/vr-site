@@ -42,6 +42,8 @@ export default function CaseStudy() {
                                 text="Read Full Case Study"
                                 className="btn btn-anim btn-default btn-outline slide-right-up"
                                 href="https://casestudy.grahasvr.space/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                               >
                                 <i className="ph-bold ph-arrow-up-right" />
                               </AnimatedButton>
